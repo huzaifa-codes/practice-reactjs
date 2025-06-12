@@ -1131,44 +1131,33 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 const RandomImage = () => {
-  const allImages = [
-    // Batch 1
-    'https://cdn.pixabay.com/photo/2018/03/23/16/03/the-horse-3254102_640.png',
-    'https://cdn.pixabay.com/photo/2017/07/30/02/07/cat-2553267_640.png',
-    'https://cdn.pixabay.com/photo/2019/12/04/13/26/animal-4672715_640.png',
-    'https://cdn.pixabay.com/photo/2020/01/28/20/47/cow-4800882_640.jpg',
-    'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg',
-    // Batch 2
-    'https://cdn.pixabay.com/photo/2020/04/06/18/10/bull-5006054_640.jpg',
-    'https://cdn.pixabay.com/photo/2020/04/28/14/24/dog-5104871_640.jpg',
-    'https://cdn.pixabay.com/photo/2016/11/21/17/38/elephant-1845803_640.jpg',
-    'https://cdn.pixabay.com/photo/2017/09/25/13/12/owl-2783912_640.jpg',
-    'https://cdn.pixabay.com/photo/2017/03/06/19/14/bird-2127313_640.jpg',
-    // Add more batches if needed
+  const imageBatches = [
+    [
+      'https://cdn.pixabay.com/photo/2018/03/23/16/03/the-horse-3254102_640.png',
+      'https://cdn.pixabay.com/photo/2017/07/30/02/07/cat-2553267_640.png',
+      'https://cdn.pixabay.com/photo/2019/12/04/13/26/animal-4672715_640.png',
+      'https://cdn.pixabay.com/photo/2020/01/28/20/47/cow-4800882_640.jpg',
+      'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg'
+    ],
+    [
+      'https://cdn.pixabay.com/photo/2020/04/06/18/10/bull-5006054_640.jpg',
+      'https://cdn.pixabay.com/photo/2020/04/28/14/24/dog-5104871_640.jpg',
+      'https://cdn.pixabay.com/photo/2016/11/21/17/38/elephant-1845803_640.jpg',
+      'https://cdn.pixabay.com/photo/2017/09/25/13/12/owl-2783912_640.jpg',
+      'https://cdn.pixabay.com/photo/2017/03/06/19/14/bird-2127313_640.jpg'
+    ]
   ];
 
-  const imagesPerBatch = 5;
-  const [batchIndex, setBatchIndex] = useState(0); // 0 = first 5, 1 = next 5
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [batchIndex, setBatchIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
   const intervalRef = useRef(null);
 
-  const getCurrentBatch = () => {
-    const start = batchIndex * imagesPerBatch;
-    const end = start + imagesPerBatch;
-    return allImages.slice(start, end);
-  };
-
-  useEffect(() => {
-    startInterval();
-    return () => clearInterval(intervalRef.current);
-  }, [batchIndex]);
-
   const startInterval = () => {
-    clearInterval(intervalRef.current); // clear previous
+    clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
-      const batch = getCurrentBatch();
-      const randomIndex = Math.floor(Math.random() * batch.length);
-      setCurrentIndex(randomIndex);
+      const currentBatch = imageBatches[batchIndex];
+      const randomIndex = Math.floor(Math.random() * currentBatch.length);
+      setImageIndex(randomIndex);
     }, 1000);
   };
 
@@ -1176,23 +1165,25 @@ const RandomImage = () => {
     clearInterval(intervalRef.current);
   };
 
-  const goToNextBatch = () => {
-    const totalBatches = Math.ceil(allImages.length / imagesPerBatch);
-    if (batchIndex < totalBatches - 1) {
+  const nextBatch = () => {
+    if (batchIndex < imageBatches.length - 1) {
       setBatchIndex(batchIndex + 1);
-      setCurrentIndex(0); // reset current image index
+      setImageIndex(0);
     }
   };
 
+  useEffect(() => {
+    startInterval();
+    return () => clearInterval(intervalRef.current);
+  }, [batchIndex]);
+
   return (
     <div className="text-center mt-10 space-y-4">
-      <div className="flex justify-center items-center">
-        <img
-          src={getCurrentBatch()[currentIndex]}
-          alt="Random"
-          className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 object-cover rounded-full transition-all duration-500"
-        />
-      </div>
+      <img
+        src={imageBatches[batchIndex][imageIndex]}
+        alt="Random"
+        className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 object-cover rounded-full transition-all duration-500"
+      />
 
       <div className="space-x-4">
         <button
@@ -1203,7 +1194,7 @@ const RandomImage = () => {
         </button>
 
         <button
-          onClick={goToNextBatch}
+          onClick={nextBatch}
           className="px-6 py-2 bg-blue-600 text-white rounded-full"
         >
           Next Batch
