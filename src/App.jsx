@@ -1,6 +1,8 @@
 // import React, { useRef, useState } from 'react'
 // import { preconnect } from 'react-dom'
 
+
+
 // export default function App() {
 
 //   const [main, setMain] = useState({});
@@ -951,116 +953,264 @@
 //   )
 // }
 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-const images = [
-  'https://cdn.pixabay.com/photo/2024/08/31/06/24/river-9010602_640.jpg',
-  'https://cdn.pixabay.com/photo/2025/05/14/16/24/chimneys-9599975_640.jpg',
-  'https://cdn.pixabay.com/photo/2025/05/30/17/16/mountain-9631830_640.jpg',
-  'https://cdn.pixabay.com/photo/2023/01/18/07/25/road-7726202_1280.jpg',
-  'https://cdn.pixabay.com/photo/2025/04/23/20/13/mountains-9553822_640.png',
-  'https://cdn.pixabay.com/photo/2025/05/04/11/36/asia-9578108_640.jpg',
-    'https://cdn.pixabay.com/photo/2024/08/31/06/24/river-9010602_640.jpg',
-  'https://cdn.pixabay.com/photo/2025/05/14/16/24/chimneys-9599975_640.jpg',
-  'https://cdn.pixabay.com/photo/2025/05/30/17/16/mountain-9631830_640.jpg',
-  'https://cdn.pixabay.com/photo/2023/01/18/07/25/road-7726202_1280.jpg',
-  'https://cdn.pixabay.com/photo/2025/04/23/20/13/mountains-9553822_640.png',
-  'https://cdn.pixabay.com/photo/2025/05/04/11/36/asia-9578108_640.jpg',
-];
+// const images = [
+//   'https://cdn.pixabay.com/photo/2024/08/31/06/24/river-9010602_640.jpg',
+//   'https://cdn.pixabay.com/photo/2025/05/14/16/24/chimneys-9599975_640.jpg',
+//   'https://cdn.pixabay.com/photo/2025/05/30/17/16/mountain-9631830_640.jpg',
+//   'https://cdn.pixabay.com/photo/2023/01/18/07/25/road-7726202_1280.jpg',
+//   'https://cdn.pixabay.com/photo/2025/04/23/20/13/mountains-9553822_640.png',
+//   'https://cdn.pixabay.com/photo/2025/05/04/11/36/asia-9578108_640.jpg',
+//     'https://cdn.pixabay.com/photo/2024/08/31/06/24/river-9010602_640.jpg',
+//   'https://cdn.pixabay.com/photo/2025/05/14/16/24/chimneys-9599975_640.jpg',
+//   'https://cdn.pixabay.com/photo/2025/05/30/17/16/mountain-9631830_640.jpg',
+//   'https://cdn.pixabay.com/photo/2023/01/18/07/25/road-7726202_1280.jpg',
+//   'https://cdn.pixabay.com/photo/2025/04/23/20/13/mountains-9553822_640.png',
+//   'https://cdn.pixabay.com/photo/2025/05/04/11/36/asia-9578108_640.jpg',
+// ];
 
-const ImageCarousel = () => {
+// const ImageCarousel = () => {
+//   const [currentIndex, setCurrentIndex] = useState(0);
+//   const visibleCount = 6;
+
+//   const handleNext = () => {
+//     if (currentIndex + visibleCount >= images.length - 1) {
+//       setCurrentIndex(0); 
+//     } else {
+//       setCurrentIndex(currentIndex + 1);
+//     }
+//   };
+
+//   const handlePrev = () => {
+//     if (currentIndex > 0) {
+//     setCurrentIndex(currentIndex - 1);
+//   } else {
+//     setCurrentIndex(images.length - 1 - visibleCount);
+//   }
+//   };
+
+//   const visibleImages = images.slice(currentIndex , currentIndex + visibleCount);
+
+//   return (
+//     <div style={styles.wrapper}>
+//       <button
+//         style={{
+//           ...styles.button,
+//           left: '10px',
+//           opacity: 1,
+//         }}
+//         onClick={handlePrev}
+//       >
+//         ⬅
+//       </button>
+
+//       <div style={styles.carousel}>
+//         {visibleImages.map((img, i) => (
+//           <img key={i} src={img} alt={`img-${i}`} style={styles.image} />
+//         ))}
+//       </div>
+
+//       <button
+//         style={{
+//           ...styles.button,
+//           right: '10px',
+//           opacity: 1,
+//         }}
+//         onClick={handleNext}
+//       >
+//         ➡
+//       </button>
+//     </div>
+//   );
+// };
+
+// const styles = {
+//   wrapper: {
+//     position: 'relative',
+//     width: '100%',
+//     maxWidth: '960px',
+//     margin: '0 auto',
+//     display: 'flex',
+//     alignItems: 'center',
+//   },
+//   carousel: {
+//     display: 'flex',
+//     gap: '10px',
+//     overflow: 'hidden',
+//     width: '100%',
+//     justifyContent: 'center',
+//   },
+//   image: {
+//     width: '300px',
+//     height: '200px',
+//     objectFit: 'cover',
+//     borderRadius: '10px',
+//     transition: 'all 0.3s ease',
+//   },
+//   button: {
+//     position: 'absolute',
+//     top: '50%',
+//     transform: 'translateY(-50%)',
+//     background: 'rgba(0,0,0,0.6)',
+//     color: '#fff',
+//     border: 'none',
+//     padding: '10px 15px',
+//     cursor: 'pointer',
+//     borderRadius: '50%',
+//     fontSize: '20px',
+//     zIndex: 1,
+//   },
+// };
+
+// export default ImageCarousel;
+
+
+
+
+// import React, { useState } from 'react'
+
+// export default function App() {
+//   const [color] = useState(["red", "blue", "green", "yellow", "purple", "orange", "black", "white"]);
+//   const [box , setArray] = useState([])
+//   const [num , setNum] = useState('')
+//   const deta = (item) =>{
+// if(box.length >= 1){
+//  setNum(item)
+
+// }
+   
+//   }
+
+//   function addArray(){
+//     setArray([...box , 'none'])
+//   }
+
+//   function boxDeta(index){
+//   const updatedBoxes = box.map((color, i) =>
+//       i === index ? num : color
+//     );
+//     setArray(updatedBoxes);
+//   }
+//   return (
+//    <div>
+//      <div>{color.map((item)=>{
+//       return (
+//         <button onClick={()=>{
+// deta(item)
+//         }} style={{
+//           backgroundColor : item
+//         }}>{item}</button>
+//       )
+//     })}</div>
+//     <div style={{
+//       display : 'flex',
+//       justifyContent : 'center',
+//       flexWrap : 'wrap'
+//     }}>{box.map((item , index)=>{
+//       return (
+//         <div onClick={()=>{
+//           boxDeta(index)
+//         }} style={{
+//           width : '100px',
+//           height : '100px',
+//           border : '1px solid black',
+//           backgroundColor : item
+//         }}></div>
+//       )
+//     })}</div>
+//        <button onClick={()=>{
+//         addArray()
+//        }}>add Array</button>
+//    </div>
+
+//   )
+// }
+
+
+import React, { useEffect, useState, useRef } from 'react';
+
+const RandomImage = () => {
+  const allImages = [
+    // Batch 1
+    'https://cdn.pixabay.com/photo/2018/03/23/16/03/the-horse-3254102_640.png',
+    'https://cdn.pixabay.com/photo/2017/07/30/02/07/cat-2553267_640.png',
+    'https://cdn.pixabay.com/photo/2019/12/04/13/26/animal-4672715_640.png',
+    'https://cdn.pixabay.com/photo/2020/01/28/20/47/cow-4800882_640.jpg',
+    'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg',
+    // Batch 2
+    'https://cdn.pixabay.com/photo/2020/04/06/18/10/bull-5006054_640.jpg',
+    'https://cdn.pixabay.com/photo/2020/04/28/14/24/dog-5104871_640.jpg',
+    'https://cdn.pixabay.com/photo/2016/11/21/17/38/elephant-1845803_640.jpg',
+    'https://cdn.pixabay.com/photo/2017/09/25/13/12/owl-2783912_640.jpg',
+    'https://cdn.pixabay.com/photo/2017/03/06/19/14/bird-2127313_640.jpg',
+    // Add more batches if needed
+  ];
+
+  const imagesPerBatch = 5;
+  const [batchIndex, setBatchIndex] = useState(0); // 0 = first 5, 1 = next 5
   const [currentIndex, setCurrentIndex] = useState(0);
-  const visibleCount = 6;
+  const intervalRef = useRef(null);
 
-  const handleNext = () => {
-    if (currentIndex + visibleCount >= images.length - 1) {
-      setCurrentIndex(0); 
-    } else {
-      setCurrentIndex(currentIndex + 1);
+  const getCurrentBatch = () => {
+    const start = batchIndex * imagesPerBatch;
+    const end = start + imagesPerBatch;
+    return allImages.slice(start, end);
+  };
+
+  useEffect(() => {
+    startInterval();
+    return () => clearInterval(intervalRef.current);
+  }, [batchIndex]);
+
+  const startInterval = () => {
+    clearInterval(intervalRef.current); // clear previous
+    intervalRef.current = setInterval(() => {
+      const batch = getCurrentBatch();
+      const randomIndex = Math.floor(Math.random() * batch.length);
+      setCurrentIndex(randomIndex);
+    }, 1000);
+  };
+
+  const stopInterval = () => {
+    clearInterval(intervalRef.current);
+  };
+
+  const goToNextBatch = () => {
+    const totalBatches = Math.ceil(allImages.length / imagesPerBatch);
+    if (batchIndex < totalBatches - 1) {
+      setBatchIndex(batchIndex + 1);
+      setCurrentIndex(0); // reset current image index
     }
   };
 
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-    setCurrentIndex(currentIndex - 1);
-  } else {
-    setCurrentIndex(images.length - 1 - visibleCount);
-  }
-  };
-
-  const visibleImages = images.slice(currentIndex , currentIndex + visibleCount);
-
   return (
-    <div style={styles.wrapper}>
-      <button
-        style={{
-          ...styles.button,
-          left: '10px',
-          opacity: 1,
-        }}
-        onClick={handlePrev}
-      >
-        ⬅
-      </button>
-
-      <div style={styles.carousel}>
-        {visibleImages.map((img, i) => (
-          <img key={i} src={img} alt={`img-${i}`} style={styles.image} />
-        ))}
+    <div className="text-center mt-10 space-y-4">
+      <div className="flex justify-center items-center">
+        <img
+          src={getCurrentBatch()[currentIndex]}
+          alt="Random"
+          className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 object-cover rounded-full transition-all duration-500"
+        />
       </div>
 
-      <button
-        style={{
-          ...styles.button,
-          right: '10px',
-          opacity: 1,
-        }}
-        onClick={handleNext}
-      >
-        ➡
-      </button>
+      <div className="space-x-4">
+        <button
+          onClick={stopInterval}
+          className="px-6 py-2 bg-red-600 text-white rounded-full"
+        >
+          Stop
+        </button>
+
+        <button
+          onClick={goToNextBatch}
+          className="px-6 py-2 bg-blue-600 text-white rounded-full"
+        >
+          Next Batch
+        </button>
+      </div>
     </div>
   );
 };
 
-const styles = {
-  wrapper: {
-    position: 'relative',
-    width: '100%',
-    maxWidth: '960px',
-    margin: '0 auto',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  carousel: {
-    display: 'flex',
-    gap: '10px',
-    overflow: 'hidden',
-    width: '100%',
-    justifyContent: 'center',
-  },
-  image: {
-    width: '300px',
-    height: '200px',
-    objectFit: 'cover',
-    borderRadius: '10px',
-    transition: 'all 0.3s ease',
-  },
-  button: {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    background: 'rgba(0,0,0,0.6)',
-    color: '#fff',
-    border: 'none',
-    padding: '10px 15px',
-    cursor: 'pointer',
-    borderRadius: '50%',
-    fontSize: '20px',
-    zIndex: 1,
-  },
-};
-
-export default ImageCarousel;
-
-
+export default RandomImage;
