@@ -1,15 +1,31 @@
-.liststyle{
-  font-size: 30px;
-  margin: 10;
+body {
+  margin: 0;
+  background: #111;
+  overflow: hidden;
 }
 
-.liststyle li{
-  font-size: 30px;
+.game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
 
-.slist{
-  font-size: 30px;
-   margin: 15;
-  
+.ball {
+  position: absolute;
+  top: -50px;
+  width: 100px;
+  height: 100px;
+  background-color: #00f2ff;
+  border-radius: 50%;
+  animation: fallDown linear infinite;
+  cursor: pointer;
+}
 
+@keyframes fallDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(110vh);
+  }
 }

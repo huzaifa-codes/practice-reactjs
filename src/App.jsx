@@ -1257,66 +1257,105 @@
       
 
 
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
+
+// export default function App() {
+//   const [input, setInput] = useState('')
+//   const [array, setArray] = useState([])
+//   const [check, setCheck] = useState([])
+//   const [editValues, setEditValues] = useState({})
+
+//   function addtodo() {
+//     if (input.trim() !== '') {
+//       setArray([...array, input])
+//       setInput('')
+//     }
+//   }
+
+//   function edittodo(index) {
+//     if (check.includes(index)) {
+//       const newArray = [...array]
+//       newArray[index] = editValues[index] || array[index]
+//       setArray(newArray)
+
+//       setCheck(check.filter(i => i !== index))
+//     } else {
+//       setCheck([...check, index])
+//       setEditValues(prev => ({ ...prev, [index]: array[index] }))
+//     }
+//   }
+
+//   function handleEditChange(index, value) {
+//     setEditValues(prev => ({
+//       ...prev,
+//       [index] : value
+//     }))
+//   }
+
+//   return (
+//     <div style={{ padding: '20px' }}>
+//       <input
+//         type="text"
+//         value={input}
+//         onChange={(e) => setInput(e.target.value)}
+//       />
+//       <button onClick={addtodo}>Add Todo</button>
+
+//       <div style={{ marginTop: '20px' }}>
+//         {array.map((item, index) => (
+//           <div key={index}>
+//             {check.includes(index) ? (
+//               <input
+//                 type="text"
+//                 value={editValues[index] || ''}
+//                 onChange={(e) => handleEditChange(index, e.target.value)}
+//               />
+//             ) : (
+//               <h1>{item}</h1>
+//             )}
+//             <button onClick={() => edittodo(index)}>Edit</button>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   )
+// }
+
+
+import React, { useEffect, useState } from "react";
+import "./index.css";
+
+const generateBall = () => ({
+  id: Math.random(),
+  left: Math.floor(Math.random() * 90) + 5, // random horizontal position
+  duration: Math.random() * 2 + 3, // duration between 3s to 5s
+});
 
 export default function App() {
-  const [input, setInput] = useState('')
-  const [array, setArray] = useState([])
-  const [check, setCheck] = useState([])
-  const [editValues, setEditValues] = useState({})
+  const [balls, setBalls] = useState([]);
 
-  function addtodo() {
-    if (input.trim() !== '') {
-      setArray([...array, input])
-      setInput('')
-    }
-  }
+  useEffect(() => {
+    const initialBalls = Array.from({ length: 10 }, generateBall);
+    setBalls(initialBalls);
+  }, []);
 
-  function edittodo(index) {
-    if (check.includes(index)) {
-      const newArray = [...array]
-      newArray[index] = editValues[index] || array[index]
-      setArray(newArray)
-
-      setCheck(check.filter(i => i !== index))
-    } else {
-      setCheck([...check, index])
-      setEditValues(prev => ({ ...prev, [index]: array[index] }))
-    }
-  }
-
-  function handleEditChange(index, value) {
-    setEditValues(prev => ({
-      ...prev,
-      [index] : value
-    }))
-  }
+  const handleRemove = (id) => {
+    setBalls((prev) => prev.filter((b) => b.id !== id).concat(generateBall()));
+  };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button onClick={addtodo}>Add Todo</button>
-
-      <div style={{ marginTop: '20px' }}>
-        {array.map((item, index) => (
-          <div key={index}>
-            {check.includes(index) ? (
-              <input
-                type="text"
-                value={editValues[index] || ''}
-                onChange={(e) => handleEditChange(index, e.target.value)}
-              />
-            ) : (
-              <h1>{item}</h1>
-            )}
-            <button onClick={() => edittodo(index)}>Edit</button>
-          </div>
-        ))}
-      </div>
+    <div className="game-container">
+      {balls.map((ball) => (
+        <div
+          key={ball.id}
+          className="ball"
+          style={{
+            left: `${ball.left}%`,
+            animationDuration: `${ball.duration}s`,
+          }}
+          onClick={() => handleRemove(ball.id)}
+        ></div>
+      ))}
     </div>
-  )
+  );
 }
