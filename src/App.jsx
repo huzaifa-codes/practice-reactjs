@@ -1255,3 +1255,68 @@
 
 //       }
       
+
+
+import React, { useState } from 'react'
+
+export default function App() {
+  const [input, setInput] = useState('')
+  const [array, setArray] = useState([])
+  const [check, setCheck] = useState([])
+  const [editValues, setEditValues] = useState({})
+
+  function addtodo() {
+    if (input.trim() !== '') {
+      setArray([...array, input])
+      setInput('')
+    }
+  }
+
+  function edittodo(index) {
+    if (check.includes(index)) {
+      const newArray = [...array]
+      newArray[index] = editValues[index] || array[index]
+      setArray(newArray)
+
+      setCheck(check.filter(i => i !== index))
+    } else {
+      setCheck([...check, index])
+      setEditValues(prev => ({ ...prev, [index]: array[index] }))
+    }
+  }
+
+  function handleEditChange(index, value) {
+    setEditValues(prev => ({
+      ...prev,
+      [index] : value
+    }))
+  }
+
+  return (
+    <div style={{ padding: '20px' }}>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button onClick={addtodo}>Add Todo</button>
+
+      <div style={{ marginTop: '20px' }}>
+        {array.map((item, index) => (
+          <div key={index}>
+            {check.includes(index) ? (
+              <input
+                type="text"
+                value={editValues[index] || ''}
+                onChange={(e) => handleEditChange(index, e.target.value)}
+              />
+            ) : (
+              <h1>{item}</h1>
+            )}
+            <button onClick={() => edittodo(index)}>Edit</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
