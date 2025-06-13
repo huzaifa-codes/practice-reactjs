@@ -1322,40 +1322,84 @@
 // }
 
 
-import React, { useEffect, useState } from "react";
-import "./index.css";
+// import React, { useEffect, useState } from "react";
+// import "./index.css";
 
-const generateBall = () => ({
-  id: Math.random(),
-  left: Math.floor(Math.random() * 90) + 5, // random horizontal position
-  duration: Math.random() * 2 + 3, // duration between 3s to 5s
-});
+// const generateBall = () => ({
+//   id: Math.random(),
+//   left: Math.floor(Math.random() * 90) + 5, // random horizontal position
+//   duration: Math.random() * 2 + 3, // duration between 3s to 5s
+// });
 
-export default function App() {
-  const [balls, setBalls] = useState([]);
+// export default function App() {
+//   const [balls, setBalls] = useState([]);
 
-  useEffect(() => {
-    const initialBalls = Array.from({ length: 10 }, generateBall);
-    setBalls(initialBalls);
-  }, []);
+//   useEffect(() => {
+//     const initialBalls = Array.from({ length: 10 }, generateBall);
+//     setBalls(initialBalls);
+//   }, []);
 
-  const handleRemove = (id) => {
-    setBalls((prev) => prev.filter((b) => b.id !== id).concat(generateBall()));
-  };
+//   const handleRemove = (id) => {
+//     setBalls((prev) => prev.filter((b) => b.id !== id).concat(generateBall()));
+//   };
 
-  return (
-    <div className="game-container">
-      {balls.map((ball) => (
-        <div
-          key={ball.id}
-          className="ball"
-          style={{
-            left: `${ball.left}%`,
-            animationDuration: `${ball.duration}s`,
-          }}
-          onClick={() => handleRemove(ball.id)}
-        ></div>
-      ))}
-    </div>
-  );
-}
+//   return (
+//     <div className="game-container">
+//       {balls.map((ball) => (
+//         <div
+//           key={ball.id}
+//           className="ball"
+//           style={{
+//             left: `${ball.left}%`,
+//             animationDuration: `${ball.duration}s`,
+//           }}
+//           onClick={() => handleRemove(ball.id)}
+//         ></div>
+//       ))}
+//     </div>
+//   );
+// }
+
+
+
+// import React, { useState } from 'react';
+
+// export default function App() {
+//   const arrays = [
+//     ['Item A1', 'Item A2'],
+//     ['Item B1', 'Item B2'],
+//     ['Item C1', 'Item C2'],
+//     ['Item D1', 'Item D2'],
+//     ['Item E1', 'Item E2']
+//   ];
+
+//   const [hiddenIndexes, setHiddenIndexes] = useState([]);
+
+//   const handleClick = (index) => {  
+//     if (hiddenIndexes.includes(index)) {
+//       setHiddenIndexes(hiddenIndexes.filter(i => i !== index));
+//     } else {
+//       setHiddenIndexes([...hiddenIndexes, index]);
+//     }
+//   };
+
+//   return (
+//     <div style={{ padding: '10px' }}>
+//       {arrays.map((arr, index) => (
+//         <div key={index}>
+//           <button onClick={() => handleClick(index)}>
+//             Toggle Array {index + 1}
+//           </button>
+
+//           {!hiddenIndexes.includes(index) && (
+//             <div style={{ margin: '10px', border: '1px solid gray',}}>
+//               {arr.map((item, i) => (
+//                 <p key={i}>{item}</p>
+//               ))}
+//             </div>
+//           )}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
