@@ -1128,80 +1128,130 @@
 // }
 
 
-import React, { useEffect, useState, useRef } from 'react';
+// import React, { useEffect, useState, useRef } from 'react';
 
-const RandomImage = () => {
-  const imageBatches = [
-    [
-      'https://cdn.pixabay.com/photo/2018/03/23/16/03/the-horse-3254102_640.png',
-      'https://cdn.pixabay.com/photo/2017/07/30/02/07/cat-2553267_640.png',
-      'https://cdn.pixabay.com/photo/2019/12/04/13/26/animal-4672715_640.png',
-      'https://cdn.pixabay.com/photo/2020/01/28/20/47/cow-4800882_640.jpg',
-      'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg'
-    ],
-    [
-      'https://cdn.pixabay.com/photo/2020/04/06/18/10/bull-5006054_640.jpg',
-      'https://cdn.pixabay.com/photo/2020/04/28/14/24/dog-5104871_640.jpg',
-      'https://cdn.pixabay.com/photo/2016/11/21/17/38/elephant-1845803_640.jpg',
-      'https://cdn.pixabay.com/photo/2017/09/25/13/12/owl-2783912_640.jpg',
-      'https://cdn.pixabay.com/photo/2017/03/06/19/14/bird-2127313_640.jpg'
-    ]
-  ];
+// const RandomImage = () => {
+//   const imageBatches = [
+//     [
+//       'https://cdn.pixabay.com/photo/2018/03/23/16/03/the-horse-3254102_640.png',
+//       'https://cdn.pixabay.com/photo/2017/07/30/02/07/cat-2553267_640.png',
+//       'https://cdn.pixabay.com/photo/2019/12/04/13/26/animal-4672715_640.png',
+//       'https://cdn.pixabay.com/photo/2020/01/28/20/47/cow-4800882_640.jpg',
+//       'https://cdn.pixabay.com/photo/2014/11/30/14/11/cat-551554_640.jpg'
+//     ],
+//     [
+//       'https://cdn.pixabay.com/photo/2020/04/06/18/10/bull-5006054_640.jpg',
+//       'https://cdn.pixabay.com/photo/2020/04/28/14/24/dog-5104871_640.jpg',
+//       'https://cdn.pixabay.com/photo/2016/11/21/17/38/elephant-1845803_640.jpg',
+//       'https://cdn.pixabay.com/photo/2017/09/25/13/12/owl-2783912_640.jpg',
+//       'https://cdn.pixabay.com/photo/2017/03/06/19/14/bird-2127313_640.jpg'
+//     ]
+//   ];
 
-  const [batchIndex, setBatchIndex] = useState(0);
-  const [imageIndex, setImageIndex] = useState(0);
-  const intervalRef = useRef(null);
+//   const [batchIndex, setBatchIndex] = useState(0);
+//   const [imageIndex, setImageIndex] = useState(0);
+//   const intervalRef = useRef(null);
 
-  const startInterval = () => {
-    clearInterval(intervalRef.current);
-    intervalRef.current = setInterval(() => {
-      const currentBatch = imageBatches[batchIndex];
-      const randomIndex = Math.floor(Math.random() * currentBatch.length);
-      setImageIndex(randomIndex);
-    }, 1000);
-  };
+//   const startInterval = () => {
+//     clearInterval(intervalRef.current);
+//     intervalRef.current = setInterval(() => {
+//       const currentBatch = imageBatches[batchIndex];
+//       const randomIndex = Math.floor(Math.random() * currentBatch.length);
+//       setImageIndex(randomIndex);
+//     }, 1000);
+//   };
 
-  const stopInterval = () => {
-    clearInterval(intervalRef.current);
-  };
+//   const stopInterval = () => {
+//     clearInterval(intervalRef.current);
+//   };
 
-  const nextBatch = () => {
-    if (batchIndex < imageBatches.length - 1) {
-      setBatchIndex(batchIndex + 1);
-      setImageIndex(0);
-    }
-  };
+//   const nextBatch = () => {
+//     if (batchIndex < imageBatches.length - 1) {
+//       setBatchIndex(batchIndex + 1);
+//       setImageIndex(0);
+//     }
+//   };
 
-  useEffect(() => {
-    startInterval();
-    return () => clearInterval(intervalRef.current);
-  }, [batchIndex]);
+//   useEffect(() => {
+//     startInterval();
+//     return () => clearInterval(intervalRef.current);
+//   }, [batchIndex]);
 
-  return (
-    <div className="text-center mt-10 space-y-4">
-      <img
-        src={imageBatches[batchIndex][imageIndex]}
-        alt="Random"
-        className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 object-cover rounded-full transition-all duration-500"
-      />
+//   return (
+//     <div className="text-center mt-10 space-y-4">
+//       <img
+//         src={imageBatches[batchIndex][imageIndex]}
+//         alt="Random"
+//         className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 object-cover rounded-full transition-all duration-500"
+//       />
 
-      <div className="space-x-4">
-        <button
-          onClick={stopInterval}
-          className="px-6 py-2 bg-red-600 text-white rounded-full"
-        >
-          Stop
-        </button>
+//       <div className="space-x-4">
+//         <button
+//           onClick={stopInterval}
+//           className="px-6 py-2 bg-red-600 text-white rounded-full"
+//         >
+//           Stop
+//         </button>
 
-        <button
-          onClick={nextBatch}
-          className="px-6 py-2 bg-blue-600 text-white rounded-full"
-        >
-          Next Batch
-        </button>
-      </div>
-    </div>
-  );
-};
+//         <button
+//           onClick={nextBatch}
+//           className="px-6 py-2 bg-blue-600 text-white rounded-full"
+//         >
+//           Next Batch
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
 
-export default RandomImage;
+// export default RandomImage;
+
+
+
+
+
+
+//       import React, { useEffect, useState } from 'react'
+      
+//       export default function App() {
+//           const firstimage  = [ 'https://cdn.pixabay.com/photo/2024/12/18/21/27/christmas-9276268_640.jpg',
+//       'https://cdn.pixabay.com/photo/2024/12/18/21/27/christmas-9276268_640.jpg',
+//       'https://cdn.pixabay.com/photo/2024/12/18/21/27/christmas-9276268_640.jpg',
+//       'https://cdn.pixabay.com/photo/2024/12/18/21/27/christmas-9276268_640.jpg',
+//       'https://cdn.pixabay.com/photo/2024/12/18/21/27/christmas-9276268_640.jpg']
+
+//       const secImage = [
+//         'https://cdn.pixabay.com/photo/2025/05/30/17/15/mountain-9631829_640.jpg',
+//         'https://cdn.pixabay.com/photo/2022/11/29/19/27/city-7625204_640.jpg' ,
+//         'https://cdn.pixabay.com/photo/2025/04/01/11/26/blue-tit-9506658_640.jpg' ,
+//         'https://cdn.pixabay.com/photo/2025/04/12/09/43/leopard-1-9529841_640.jpg',
+//         'https://cdn.pixabay.com/photo/2025/05/02/07/28/panorama-9573161_640.jpg']
+
+// const [check , setCheck]= useState(false)
+// const [current , setCurrent] = useState(firstimage)
+
+//       useEffect(()=>{
+//         setTimeout(() => {
+//    setCurrent(check ? secImage : firstimage)
+//           setCheck(!check)
+          
+//         }, 2000);
+//       },[check])
+ 
+//             return (
+//         <div>
+//           <div style={{
+//             display : 'flex',
+//             justifyContent : 'center',
+//             flexWrap : 'wrap',
+//             gap : '10px'
+//           }}>{current.map((item)=>{
+//             return (
+//            <img src={item} alt="" />
+//             )
+//           })}</div>
+//         </div>
+//       )
+
+//       }
+      
