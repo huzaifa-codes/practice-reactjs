@@ -2229,6 +2229,7 @@ import React, { useState } from 'react';
 
 export default function Comment() {
   const [showReplies, setShowReplies] = useState(false);
+  const array = ['Reply 1: Haan same problem hai' , 'Reply 2: Plumber ko call karo' , 'Reply 3: Yeh roz ka masla ban gaya hai' ]
 
   const toggleReplies = () => {
     setShowReplies(!showReplies);
@@ -2239,17 +2240,18 @@ export default function Comment() {
       <p><strong>ZOii Qureshi 🦋🧸</strong></p>
       <p>11 F ma Pani Nahin a Raha</p>
       <p style={{ fontSize: "12px", color: "gray" }}>6h ago</p>
-      <button onClick={toggleReplies} style={{ color: "blue", cursor: "pointer", background: "none", border: "none", padding: 0 }}>
-        {showReplies ? 'Hide replies' : 'View 3 replies'}
-      </button>
-
-      {showReplies && (
-        <div style={{ marginTop: "10px", marginLeft: "20px" }}>
-          <p>Reply 1: Haan same problem hai</p>
-          <p>Reply 2: Plumber ko call karo</p>
-          <p>Reply 3: Yeh roz ka masla ban gaya hai</p>
+         {showReplies && (
+       array.map((item)=>{
+        return (
+             <div style={{ marginTop: "10px", marginLeft: "20px" }}>
+          <p>{item}</p>
         </div>
+        )
+       })
       )}
+      <button onClick={toggleReplies} style={{ color: "blue", cursor: "pointer", background: "none", border: "none", padding: 0 }}>
+        {showReplies ? 'Hide replies' : `view ${array.length} replies`}
+      </button>
     </div>
   );
 }
