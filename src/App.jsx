@@ -1256,72 +1256,6 @@
 //       }
       
 
-
-// import React, { useState } from 'react'
-
-// export default function App() {
-//   const [input, setInput] = useState('')
-//   const [array, setArray] = useState([])
-//   const [check, setCheck] = useState([])
-//   const [editValues, setEditValues] = useState({})
-
-//   function addtodo() {
-//     if (input.trim() !== '') {
-//       setArray([...array, input])
-//       setInput('')
-//     }
-//   }
-
-//   function edittodo(index) {
-//     if (check.includes(index)) {
-//       const newArray = [...array]
-//       newArray[index] = editValues[index] || array[index]
-//       setArray(newArray)
-
-//       setCheck(check.filter(i => i !== index))
-//     } else {
-//       setCheck([...check, index])
-//       setEditValues(prev => ({ ...prev, [index]: array[index] }))
-//     }
-//   }
-
-//   function handleEditChange(index, value) {
-//     setEditValues(prev => ({
-//       ...prev,
-//       [index] : value
-//     }))
-//   }
-
-//   return (
-//     <div style={{ padding: '20px' }}>
-//       <input
-//         type="text"
-//         value={input}
-//         onChange={(e) => setInput(e.target.value)}
-//       />
-//       <button onClick={addtodo}>Add Todo</button>
-
-//       <div style={{ marginTop: '20px' }}>
-//         {array.map((item, index) => (
-//           <div key={index}>
-//             {check.includes(index) ? (
-//               <input
-//                 type="text"
-//                 value={editValues[index] || ''}
-//                 onChange={(e) => handleEditChange(index, e.target.value)}
-//               />
-//             ) : (
-//               <h1>{item}</h1>
-//             )}
-//             <button onClick={() => edittodo(index)}>Edit</button>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   )
-// }
-
-
 // import React, { useEffect, useState } from "react";
 // import "./index.css";
 
@@ -1403,3 +1337,919 @@
 //     </div>
 //   );
 // }
+
+
+// import React, { useState } from 'react'
+
+// export default function App() {
+//     const [input , setInput] = useState('')
+// const [array , setArray]= useState([])
+// const [filter , setFilter] = useState('all')
+//     function addTodo(){
+//   if (input.trim() === '') return;
+//    setArray([...array , {id : Date.now() , completed : false , input : input }])
+//    console.log(array);
+   
+//   };
+
+//   function  toggleTask(id){
+//    setArray(
+//     array.map((item)=> {
+//         return item.id == id ? {...item , completed : !item.completed} : item
+//      })
+//    )
+//   }
+
+
+//   const Main = array.filter((item)=>{
+//       if (filter === 'all') return true;
+//       if(filter == 'complete') return item.completed;
+//       if(filter == 'uncomplete') return !item.completed
+//   })
+
+//   return (
+//    <div>
+//     <button onClick={()=>setFilter('complete')}>complete</button>
+//     <button  onClick={()=>setFilter('uncomplete')}>uncomplete</button>
+//     <button  onClick={()=>setFilter('all')}>all</button>
+//     <input type="text" onChange={(e)=>{
+// setInput(e.target.value)
+//     }}/>
+//     <button onClick={()=>{
+//         addTodo()
+//     }}>Add Todo</button>
+//     <div>{Main.map((item)=>{
+//         return (
+//             <div key={item.id}>
+//                 <input
+//               type="checkbox"
+//               checked={item.completed}
+//               onChange={() => toggleTask(item.id)}
+//             />
+//                 <p style={{
+//                      textDecoration: item.completed ? 'line-through' : 'none',
+//                 }}>{item.input}</p>
+//             </div>
+//         )
+//     })}</div>
+//    </div>
+//   )
+// }
+
+// import React, { useState } from 'react';
+
+// const images = [
+//   'https://img.freepik.com/free-vector/landscape-scene-night_1048-2212.jpg?ga=GA1.1.7045372.1748514072&semt=ais_hybrid&w=740',
+//   'https://img.freepik.com/premium-photo/rear-view-man-looking-landscape-while-standing-observation-point_1048944-8912719.jpg?ga=GA1.1.7045372.1748514072&semt=ais_hybrid&w=740',
+//   'https://img.freepik.com/free-photo/female-admiring-breathtaking-sunset-green-forests_181624-10935.jpg?ga=GA1.1.7045372.1748514072&semt=ais_hybrid&w=740',
+//   'https://img.freepik.com/free-photo/landscape-with-calm-sea_1048-4777.jpg?ga=GA1.1.7045372.1748514072&semt=ais_hybrid&w=740',
+// ];
+
+// export default function App() {
+//   const [visibleIndex, setVisibleIndex] = useState(null);
+
+//   const handleClick = (index) => {
+//     if (visibleIndex === index) {
+//       setVisibleIndex(null); // Show all
+//     } else {
+//       setVisibleIndex(index); // Show only clicked
+//     }
+//   };
+
+//   return (
+//     <div style={styles.container}>
+//       {images.map((img, index) => (
+//         <img
+//           key={index}
+//           src={img}
+//           alt={`img-${index}`}
+//           onClick={() => handleClick(index)}
+//           style={{
+//             ...styles.image,
+//             display: visibleIndex === null || visibleIndex === index ? 'block' : 'none',
+//             transform: visibleIndex === index ? 'scale(1.05)' : 'scale(1)',
+//             boxShadow: visibleIndex === index ? '0 8px 16px rgba(0,0,0,0.4)' : '0 4px 8px rgba(0,0,0,0.2)',
+//           }}
+//         />
+//       ))}
+//     </div>
+//   );
+// }
+
+// const styles = {
+//   container: {
+//     display: 'flex',
+//     flexWrap: 'wrap',
+//     justifyContent: 'center',
+//     gap: '20px',
+//     padding: '30px',
+//     backgroundColor: '#f5f5f5',
+//     minHeight: '100vh',
+//   },
+//   image: {
+//     width: '200px',
+//     height: '150px',
+//     objectFit: 'cover',
+//     borderRadius: '12px',
+//     cursor: 'pointer',
+//     transition: 'all 0.3s ease',
+//   },
+// };
+
+
+// import React, { useState } from 'react';
+// import './App.css';
+
+// export default function App() {
+//   const images = [
+//     'https://img.freepik.com/free-vector/landscape-scene-night_1048-2212.jpg?ga=GA1.1.7045372.1748514072&semt=ais_hybrid&w=740',
+//     'https://img.freepik.com/premium-photo/rear-view-man-looking-landscape-while-standing-observation-point_1048944-8912719.jpg?ga=GA1.1.7045372.1748514072&semt=ais_hybrid&w=740',
+//     'https://img.freepik.com/free-photo/female-admiring-breathtaking-sunset-green-forests_181624-10935.jpg?ga=GA1.1.7045372.1748514072&semt=ais_hybrid&w=740',
+//     'https://img.freepik.com/free-photo/landscape-with-calm-sea_1048-4777.jpg?ga=GA1.1.7045372.1748514072&semt=ais_hybrid&w=740',
+//   ];
+
+
+//   const [single , setSingle] = useState(null)
+
+//   return (
+//    <div>
+//      <div className="gallery">
+//       {images.map((item)=>{
+//         return (
+//         <div>
+//           <img onClick={()=>{
+//             setSingle(item)
+//           }} src={item} alt="" width={200} height={200}/>
+//         </div>
+//         )
+//       })}
+//     </div>
+
+// {single && (
+//   <div className="overlay"  onClick={()=>{
+//     setSingle(null)
+//   }}>
+//     <img src={single} alt="" className="popup-image" />
+//   </div>
+// )}
+
+//    </div>
+//   )
+
+// }
+
+// import React, { useState } from 'react'
+// import { unstable_batchedUpdates } from 'react-dom';
+
+// export default function App() {
+//   const [array , setArray] = useState([{
+//     name : 'huzaifa',
+//     checked : false,
+//     age : 17,
+//     id : Date.now()
+//   }])
+
+//   function changeDeta(item){
+// setArray([...array , { age : 18 , checked : !item.checked}])
+//   }
+//   return (
+//     <div>{array.map((item , index)=>{
+//       return (
+//         <div onClick={()=>{
+//           changeDeta(item)
+//         }}> 
+//           <h1>{item.name}</h1>
+//           <h1>{item.checked ? item.age : ''}</h1>
+      
+//         </div>
+
+//       )
+//     })}</div>
+//   )
+// }
+
+
+// import React, { useState } from 'react';
+// export default function App() {
+//   const [array, setArray] = useState(Array(10).fill(''));
+
+//   function DivDeta(index) {
+//     setArray(prev =>
+//       prev.map((item, i) =>
+//         i === index ? (item === 'red' ? '' : 'red') : item
+//       )
+//     );
+//   }
+  
+//   return (
+//     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+//       {array.map((item, index) => (
+//         <div
+//           key={index}
+//           onClick={() => DivDeta(index)}
+//           style={{
+//             width: '100px',
+//             height: '100px',
+//             border: '1px solid black',
+//             backgroundColor: item,
+//             cursor: 'pointer',
+//           }}
+//         ></div>
+//       ))}
+//     </div>
+//   );
+// }
+
+
+
+// import React, { useState } from 'react'
+
+// export default function App() {
+//   const [color] = useState(['red'  , 'blue' , 'green' , 'yellow' , 'brown' , 'pink' , 'black'])
+//   const [array, setArray] = useState(Array(color.length).fill(''));
+//   const [single , setSingle] = useState('')
+
+//   function checkcolor(index){
+//  setArray(prev =>
+//     prev.map((item , i)=>{
+//         console.log(prev);
+        
+//         return (
+
+//             i == index ? single : item
+            
+//         )
+//     })
+//  )
+//   }
+//   return (
+//     <div>
+//       <div style={{
+//         display : 'flex',
+//         justifyContent : 'center',
+//         gap : '10px',
+    
+//       }}>
+//         {color.map((item)=>{
+//           return (
+//             <div onClick={()=>{
+//               setSingle(item)
+//             }} style={{
+//               backgroundColor : item,
+//                   border : '1px solid black',
+//               width : '100px',
+//               color : 'white'
+//             }}>{item}</div>
+//           )
+// })}
+//       </div>
+//       <div style={{
+//         display : 'flex',
+//         justifyContent : 'center',
+//         alignItems : 'center'
+//       }}>{array.map((item , index)=>{
+//         return (
+//   <div onClick={()=>{
+//     checkcolor(index)
+//   }} style={{
+//     width : '100px',
+//     height : '100px',
+//     border : '1px solid black',
+//     backgroundColor : item
+//   }}></div>
+//         )
+      
+//       })}</div>
+//     </div>
+//   )
+// }
+
+
+// import React, { useState } from 'react'
+
+// export default function App() {
+//   const [Deta , setDeta] = useState([
+//   {
+//     id: 1,
+//     question: "What is React?",
+//     answer: "React is a JavaScript library for building user interfaces.",
+// show : false
+//   },
+//   {
+//     id: 2,
+//     question: "What is a component in React?",
+//     answer: "A component is a reusable piece of UI in a React application.",
+//     show : false
+//   },
+//   {
+//     id: 3,
+//     question: "What is useState?",
+//     answer: "useState is a React Hook used to manage state in a functional component.",
+//     show : false
+//   },
+//   {
+//     id: 4,
+//     question: "What is JSX?",
+//     answer: "JSX stands for JavaScript XML and allows writing HTML inside JavaScript.",
+//     show : false
+//   },
+//   {
+//     id: 5,
+//     question: "What are props in React?",
+//     answer: "Props are inputs passed to components to make them dynamic and reusable.",
+//     show : false
+//   }
+// ]);
+
+//   const [visibleIndexes, setVisibleIndexes] = useState([]);
+
+//  const giveAnswer = (index) => {
+//     setVisibleIndexes((prev) =>
+//       prev.includes(index)
+//         ? prev.filter((i) => i !== index) // if already shown, hide it
+//         : [...prev, index] // otherwise add it to show
+//     );
+//   };
+
+//   return (
+//     <div>{Deta.map((item , index)=>{
+//       return (
+//         <div onClick={()=>{
+//           giveAnswer(index)
+//         }} key={index}>
+//           <h1>{item.question}</h1>
+//           <h1>{visibleIndexes.includes(index) && item.answer}</h1>
+//         </div>
+//       )
+//     })}</div>
+//   )
+// }
+// import React, { useState } from 'react';
+
+// export default function App() {
+//   const [count, setCount] = useState([
+//     {
+//       name: 'hamza',
+//       check: false,
+//       classes: 11,
+//       age: 17,
+//     },
+//       {
+//       name: 'hamza',
+//       check: false,
+//       classes: 11,
+//       age: 17,
+//     },
+//       {
+//       name: 'hamza',
+//       check: false,
+//       classes: 11,
+//       age: 17,
+//     },
+//       {
+//       name: 'hamza',
+//       check: false,
+//       classes: 11,
+//       age: 17,
+//     },
+//       {
+//       name: 'hamza',
+//       check: false,
+//       classes: 11,
+//       age: 17,
+//     },
+//       {
+//       name: 'hamza',
+//       check: false,
+//       classes: 11,
+//       age: 17,
+//     },
+//   ]);
+
+//   function checkDeta(index){
+//   setCount(
+//   count.map((item , i)=>{
+//     return index == i ? {...item , check : !item.check} : item
+//   })
+//   )
+
+//   console.log(count);
+  
+//   }
+
+//   return (
+//     <div>
+//       {count.map((item, index) => (
+//         <div key={index}>
+//           {item.name} — Checked: {item.check ? '✅' : '❌'}
+//             <button onClick={()=>{
+//         checkDeta(index)
+//       }}>
+//         Toggle Check
+//       </button>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+
+// import React, { useState } from 'react';
+
+// export default function App() {
+//   const [paragraphs, setParagraphs] = useState([
+//     "Yeh pehla paragraph hai.",
+//     "Yeh doosra paragraph hai.",
+//     "Yeh teesra paragraph hai."
+//   ]);
+
+//   const handleRemove = (indexToRemove) => {
+//     setParagraphs(prev =>
+//       prev.filter((_, index) => index !== indexToRemove)
+//     );
+//   };
+
+//   return (
+//     <div>
+//       {paragraphs.map((para, index) => (
+//         <p key={index} onClick={() => handleRemove(index)} style={{ cursor: 'pointer' }}>
+//           {para}
+//         </p>
+//       ))}
+//     </div>
+//   );
+// }
+
+
+// import React, { useState } from "react";
+// import "./App.css";
+
+// export default function App() {
+//   const [selected, setSelected] = useState(null);
+
+//   const images = [
+//     "https://cdn.pixabay.com/photo/2025/06/11/07/18/wildlife-9653797_640.jpg",
+//     "https://cdn.pixabay.com/photo/2024/02/13/22/20/eibsee-8572003_640.jpg",
+//     "https://cdn.pixabay.com/photo/2022/11/27/01/47/boat-7618814_1280.jpg",
+//     "https://cdn.pixabay.com/photo/2013/06/08/04/17/ferry-boat-123059_640.jpg",
+//     "https://cdn.pixabay.com/photo/2021/11/13/11/58/ferry-6791106_640.jpg",
+//   ];
+
+//   return (
+//     <div style={{
+//       display : 'flex',
+//       justifyContent : 'center',
+//       flexWrap : 'wrap',
+
+//     }}>
+//       {selected == null ?  images.map((item , index)=>{
+//         return (
+//           <div onClick={()=>{
+//             setSelected(index)
+//           }}>
+//             <img src={item} alt="" width={300} height={300} />
+//           </div>
+//         )
+//       }) : <>
+//      <div onClick={()=>{
+//         setSelected(null)
+//       }} style={{
+//         width : '100%',
+//         height : '100vh',
+//         display : 'flex',
+//         justifyContent : 'center',
+//         alignItems : 'center'
+//       }}>
+//        <img style={{
+//         width : '800px',
+//         height : '800px',
+
+//        }}  src={images[selected]} alt="" />
+//      </div>
+//       </>}
+//     </div>
+//   );
+// }
+
+// import React, { useState } from "react";
+// import "./App.css"; // Don't forget to include this CSS
+
+// export default function App() {
+//   const [selected, setSelected] = useState(null);
+
+//   const images = [
+//     "https://cdn.pixabay.com/photo/2025/06/11/07/18/wildlife-9653797_640.jpg",
+//     "https://cdn.pixabay.com/photo/2024/02/13/22/20/eibsee-8572003_640.jpg",
+//     "https://cdn.pixabay.com/photo/2022/11/27/01/47/boat-7618814_1280.jpg",
+//     "https://cdn.pixabay.com/photo/2013/06/08/04/17/ferry-boat-123059_640.jpg",
+//     "https://cdn.pixabay.com/photo/2021/11/13/11/58/ferry-6791106_640.jpg",
+//   ];
+
+//   return (
+//     <div className="app">
+//       <h1>📸 Click Image to Enlarge</h1>
+
+//       {/* Modal for enlarged image */}
+//       {selected !== null && (
+//         <div className="modal" onClick={() => setSelected(null)}>
+//           <img src={images[selected]} alt="Big View" className="modal-img" />
+//         </div>
+//       )}
+
+//       {/* Thumbnails */}
+//       <div className="gallery">
+//         {images.map((img, i) => (
+//           <div className="thumb" key={i} onClick={() => setSelected(i)}>
+//             <img src={img} alt={`thumb-${i}`} />
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+// import React, { useState } from "react";
+// import "./App.css";
+
+// export default function App() {
+//   const [openStates, setOpenStates] = useState({});
+
+//   const data = [
+//     {
+//       question: "What is React?",
+//       answer: "React is a JavaScript library for building user interfaces.",
+//     },
+//     {
+//       question: "What is useState?",
+//       answer: "useState is a React hook that lets you add state to functional components.",
+//     },
+//     {
+//       question: "What is JSX?",
+//       answer: "JSX stands for JavaScript XML. It allows us to write HTML in React.",
+//     },
+//   ];
+
+//   const toggleAnswer = (index) => {
+//   setOpenStates((prev) => {
+//   return {
+//     ...prev,
+//     [index]: !prev[index],
+//   };
+// });
+// };
+ 
+//   return (
+//     <div className="container">
+//       <h1>📘 FAQ</h1>
+//       {data.map((item, index) => (
+//         <div key={index} className="qa-box">
+//           <div className="question" onClick={() => toggleAnswer(index)}>
+//             <span className={`arrow ${openStates[index] ? "rotate" : ""}`}>
+//               ▶
+//             </span>
+//             {item.question}
+//           </div>
+//           {openStates[index] && (
+//             <div className="answer">{item.answer}</div>
+//           )}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+
+// import React, { useState } from 'react'
+
+// export default function App() {
+
+//     const [array , setArray] = useState({})
+//       const data = [
+//     {
+//       question: "What is React?",
+//       answer: "React is a JavaScript library for building user interfaces.",
+//     },
+//     {
+//       question: "What is useState?",
+//       answer: "useState is a React hook that lets you add state to functional components.",
+//     },
+//     {
+//       question: "What is JSX?",
+//       answer: "JSX stands for JavaScript XML. It allows us to write HTML in React.",
+//     },
+//   ];
+
+// function checkArray(index){
+//     setArray(prev => ({
+//         ...prev,
+//         [index] : !array[index]
+//     }))
+
+//     console.log(array);
+    
+// }
+
+//   return (
+//    <div>
+//     <div>{data.map((item , index)=>{
+//         return (
+//        <div>
+//              <h1 onClick={()=>{
+//                 checkArray(index)
+//              }}>{item.question}</h1>
+//       <h1>{array[index] && item.answer}</h1>
+//        </div>
+           
+//         )
+//     })}</div>
+//    </div>
+//   )
+// }
+
+// import React, { useState } from 'react';
+
+// const Boxes = () => {
+//   const [activeIndex, setActiveIndex] = useState(null);
+//   const [isLocked, setIsLocked] = useState(false); // lock after first click
+
+//   const handleClick = (index) => {
+//     if (!isLocked) {
+//       setActiveIndex(index);   // set only once
+//       setIsLocked(true);       // lock further clicks
+//     }
+//     else{
+//         setActiveIndex(null)
+//         setIsLocked(false)
+//     }
+//   };
+
+//   return (
+//     <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '360px' }}>
+//       {[...Array(10)].map((_, index) => (
+//         <div
+//           key={index}
+//           onClick={() => handleClick(index)}
+//           style={{
+//             width: '100px',
+//             height: '100px',
+//             margin: '10px',
+//             backgroundColor: activeIndex === index ? 'red' : 'lightgray',
+//             cursor: isLocked ? 'not-allowed' : 'pointer',
+//             border: '1px solid black',
+//           }}
+//         />
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Boxes;
+
+
+
+// import React, { useState } from "react";
+
+// export default function App() {
+//   const [showArchived, setShowArchived] = useState(false);
+
+//   const chats = [
+//     { id: 1, name: "Ali", message: "Hello!", archived: false },
+//     { id: 2, name: "Sara", message: "Meeting at 5", archived: true },
+//     { id: 3, name: "Ahmed", message: "See you!", archived: false },
+//     { id: 4, name: "Zara", message: "Archived msg", archived: true }
+//   ];
+
+//   const filteredChats = chats.filter(chat => chat.archived === showArchived);
+
+//   return (
+//     <div style={{ padding: "20px", fontFamily: "Arial" }}>
+//       <h2>{showArchived ? "Archived Chats" : "All Chats"}</h2>
+
+//       <button onClick={() => setShowArchived(!showArchived)}>
+//         {showArchived ? "Show All Chats" : "Show Archived Chats"}
+//       </button>
+
+//       <ul>
+//         {filteredChats.map(chat => (
+//           <li key={chat.id}>
+//             <strong>{chat.name}:</strong> {chat.message}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+
+// import React, { useState } from "react";
+
+// export default function App() {
+//   const [check, setCheck] = useState(true);
+//   const [archivedChats, setArchivedChats] = useState([]);
+//   const [chats, setChats] = useState([
+//     {
+//       id: 1,
+//       name: "Ali Raza",
+//       message: "Hey, how are you?",
+//       time: "10:15 AM",
+//       archived: false
+//     },
+//     {
+//       id: 2,
+//       name: "Hina Khan",
+//       message: "Project update sent.",
+//       time: "11:00 AM",
+//       archived: true
+//     },
+//     {
+//       id: 3,
+//       name: "Ahmed",
+//       message: "Call me when free.",
+//       time: "12:30 PM",
+//       archived: false
+//     },
+//     {
+//       id: 4,
+//       name: "Sara Malik",
+//       message: "Dinner tonight?",
+//       time: "01:45 PM",
+//       archived: true
+//     },
+//     {
+//       id: 5,
+//       name: "Usman Jutt",
+//       message: "Check your email.",
+//       time: "03:20 PM",
+//       archived: false
+//     },
+//     {
+//       id: 6,
+//       name: "Ayesha",
+//       message: "Got the tickets!",
+//       time: "04:10 PM",
+//       archived: true
+//     }
+//   ]);
+
+//   const archiveChat = (index) => {
+//     const updatedChats = chats.filter((_, i) => i !== index);
+//     const movedItem = chats[index];
+//     setChats(updatedChats);
+//     setArchivedChats([...archivedChats, movedItem]);
+//   };
+
+//   return (
+//     <div style={{ padding: "20px", fontFamily: "Arial" }}>
+//       <button onClick={() => setCheck(!check)}>
+//         {check ? "Show Archived" : "Show Active Chats"}
+//       </button>
+
+//       <h2>{check ? "All Chats" : "Archived Chats"}</h2>
+
+//       {check
+//         ? chats.map((item, index) => (
+//             <div key={item.id} style={{ marginBottom: "10px" }}>
+//               <strong>{item.name}</strong>: {item.message} ({item.time})
+//               <br />
+//               <button onClick={() => archiveChat(index)}>Archive</button>
+//             </div>
+//           ))
+//         : archivedChats.map((item) => (
+//             <div key={item.id} style={{ marginBottom: "10px" }}>
+//               <strong>{item.name}</strong>: {item.message} ({item.time})
+//             </div>
+//           ))}
+//     </div>
+//   );
+// }
+// import React, { useState } from 'react';
+
+// export default function App() {
+//   const [array] = useState([
+//     'https://cdn.pixabay.com/photo/2025/06/11/07/18/wildlife-9653797_640.jpg',
+//     'https://cdn.pixabay.com/photo/2025/06/07/02/33/rock-monitor-9645835_640.jpg',
+//     'https://cdn.pixabay.com/photo/2025/06/10/10/10/bird-9652000_640.jpg'
+//   ]);
+
+//   const [check, setCheck] = useState([0]); // 0 index is black by default
+
+//   function checkSome(i) {
+//     setCheck((prev) => {
+//       if (prev.includes(i)) return prev; 
+//       return [...prev, i]; // add new index
+//     });
+//   }
+
+//   return (
+//     <div>
+//       {/* Show last clicked image, or default (0) */}
+//       <img
+//         src={array[check[check.length - 1] ?? 0]}
+//         alt=""
+//         style={{ width: '300px', height: 'auto' }}
+//       />
+
+//       <div
+//         style={{
+//           display: 'flex',
+//           gap: '20px',
+//           marginTop: '10px',
+//         }}
+//       >
+//         {array.map((item, i) => (
+//           <div
+//             key={i}
+//             onClick={() => checkSome(i)}
+//             style={{
+//               width: '100px',
+//               height: '10px',
+//               backgroundColor: check.includes(i) ? 'black' : 'wheat',
+//               cursor: 'pointer',
+//             }}
+//           ></div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// import React, { useState } from "react";
+// import "./index.css";
+
+//   const images = [
+//     'https://cdn.pixabay.com/photo/2023/04/07/23/21/bridge-7907835_640.jpg',
+//     'https://cdn.pixabay.com/photo/2025/06/07/02/33/rock-monitor-9645835_640.jpg',
+//     'https://cdn.pixabay.com/photo/2024/02/13/22/20/eibsee-8572003_640.jpg'
+//   ];
+// function App() {
+//   const [mainImage, setMainImage] = useState(0);
+//   const [clickedIndexes, setClickedIndexes] = useState([0]);
+
+//   const handleThumbnailClick = (index) => {
+
+//     if (index === mainImage + 1) {
+//       setMainImage(index);
+//       setClickedIndexes((prev) => [...prev, index]);
+//     }
+
+//     else if (index === mainImage - 1) {
+//       setMainImage(index);
+//       setClickedIndexes((prev) => prev.filter((i) => i !== mainImage));
+//     }
+//   };
+
+//   return (
+//     <div className="container">
+//       <img className="main-image" src={images[mainImage]} alt="Main" />
+
+//       <div className="thumbnails">
+//         {images.map((img, index) => (
+//           <div
+//            style={{
+//             width : '100px',
+//             height : '20px',
+//             backgroundColor : clickedIndexes.includes(index) ? 'black' : 'whitesmoke'
+//            }}
+//             onClick={() => handleThumbnailClick(index)}
+//             alt={`Thumbnail ${index + 1}`}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+import React, { useState } from 'react';
+
+export default function Comment() {
+  const [showReplies, setShowReplies] = useState(false);
+
+  const toggleReplies = () => {
+    setShowReplies(!showReplies);
+  };
+
+  return (
+    <div style={{ padding: "1rem", border: "1px solid gray", maxWidth: "400px" }}>
+      <p><strong>ZOii Qureshi 🦋🧸</strong></p>
+      <p>11 F ma Pani Nahin a Raha</p>
+      <p style={{ fontSize: "12px", color: "gray" }}>6h ago</p>
+      <button onClick={toggleReplies} style={{ color: "blue", cursor: "pointer", background: "none", border: "none", padding: 0 }}>
+        {showReplies ? 'Hide replies' : 'View 3 replies'}
+      </button>
+
+      {showReplies && (
+        <div style={{ marginTop: "10px", marginLeft: "20px" }}>
+          <p>Reply 1: Haan same problem hai</p>
+          <p>Reply 2: Plumber ko call karo</p>
+          <p>Reply 3: Yeh roz ka masla ban gaya hai</p>
+        </div>
+      )}
+    </div>
+  );
+}

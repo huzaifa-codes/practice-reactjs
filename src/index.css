@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   background: #111;
   overflow: hidden;
@@ -28,4 +28,38 @@ body {
   to {
     transform: translateY(110vh);
   }
+} */
+
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.main-image {
+  width: 500px;
+  height: auto;
+  border: 2px solid #000;
+  margin-bottom: 20px;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.thumb {
+  width: 120px;
+  height: 70px;
+  object-fit: cover;
+  border: 2px solid black;
+  cursor: pointer;
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+.thumb.active {
+  background-color: black;
 }
