@@ -1,8 +1,5 @@
 // import React, { useRef, useState } from 'react'
-// import { preconnect } from 'react-dom'
-
-
-
+// import { preconnect } from 'react-dom
 // export default function App() {
 
 //   const [main, setMain] = useState({});
@@ -2225,33 +2222,2483 @@
 // export default App;
 
 
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
-export default function Comment() {
-  const [showReplies, setShowReplies] = useState(false);
-  const array = ['Reply 1: Haan same problem hai' , 'Reply 2: Plumber ko call karo' , 'Reply 3: Yeh roz ka masla ban gaya hai' ]
+// export default function Comment() {
+//   const [showReplies, setShowReplies] = useState(false);
+//   const array = [
+//     'Reply 1: Haan same problem hai',
+//     'Reply 2: Plumber ko call karo',
+//     'Reply 3: Yeh roz ka masla ban gaya hai'
+//   ];
 
-  const toggleReplies = () => {
-    setShowReplies(!showReplies);
+//   const toggleReplies = () => {
+//     setShowReplies(!showReplies);
+//   };
+
+//   return (
+//     <div style={{ padding: "1rem", border: "1px solid gray", maxWidth: "400px" }}>
+//       <p><strong>ZOii Qureshi 🦋🧸</strong></p>
+//       <p>{array[0]}</p>
+//       <p style={{ fontSize: "12px", color: "gray" }}>6h ago</p>
+
+//       {/* Show remaining replies if toggled */}
+//       {showReplies && (
+//         array.slice(1).map((item, index) => (
+//           <div key={index} style={{ marginTop: "10px", marginLeft: "20px" }}>
+//             <p>{item}</p>
+//           </div>
+//         ))
+//       )}
+
+//       {/* Toggle Button */}
+//       <button
+//         onClick={toggleReplies}
+//         style={{
+//           color: "blue",
+//           cursor: "pointer",
+//           background: "none",
+//           border: "none",
+//           padding: 0
+//         }}
+//       >
+//         {showReplies ? 'Hide replies' : `View ${array.length - 1} replies`}
+//       </button>
+//     </div>
+//   );
+// }
+
+// import React, { useState } from 'react';
+
+// export default function App() {
+//   const [edit, setEdit] = useState(false);
+
+//   return (
+//     <>
+//       <div style={{ filter: edit ? 'blur(5px)' : 'none', transition: '0.3s' }}>
+//         <div style={{
+//           display: 'flex',
+//           justifyContent: 'center',
+//           alignItems: 'center',
+//           height: '100vh',
+//         }}>
+//           <div style={{
+//             border: '1px solid black',
+//             width: '34%',
+//             background: 'white',
+//             padding: '10px',
+//             boxShadow: '0 0 10px rgba(0,0,0,0.1)'
+//           }}>
+//             <img
+//               src="https://cdn.pixabay.com/photo/2025/04/28/17/02/acacia-9565430_640.jpg"
+//               alt=""
+//               style={{ width: '100%', height: 'auto' }}
+//             />
+//             <p>
+//               اپنے شوہر سے اس بکواس کی امید نہ کریں.. نعمان اعجاز کا معاذ صفدر پر کڑا وار ! لڑکیوں کو اہم مشورہ
+//             </p>
+//             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+//               <button>Share</button>
+//               <button onClick={() => setEdit(true)}>Comment</button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* Modal */}
+//       {edit && (
+//         <div
+//           onClick={() => setEdit(false)} // Close when clicking outside
+//           style={{
+//             position: 'fixed',
+//             top: 0,
+//             left: 0,
+//             height: '100vh',
+//             width: '100vw',
+//             backgroundColor: 'rgba(0,0,0,0.3)',
+//             backdropFilter: 'blur(5px)',
+//             display: 'flex',
+//             justifyContent: 'center',
+//             alignItems: 'center',
+//             zIndex: 1000,
+//           }}
+//         >
+//           {/* Modal Box */}
+//           <div
+//             onClick={(e) => e.stopPropagation()}
+//             style={{
+//               background: 'white',
+//               width: '40%',
+//               maxHeight: '90vh',
+//               overflowY: 'auto',
+//               borderRadius: '10px',
+//               padding: '15px',
+//               position: 'relative',
+//               boxShadow: '0 0 20px rgba(0,0,0,0.2)'
+//             }}
+//           >
+//             {/* Close Button */}
+//             <button onClick={() => setEdit(false)} style={{
+//               position: 'absolute',
+//               top: '10px',
+//               right: '10px',
+//               background: 'red',
+//               color: 'white',
+//               border: 'none',
+//               borderRadius: '50%',
+//               width: '25px',
+//               height: '25px',
+//               fontWeight: 'bold',
+//               cursor: 'pointer'
+//             }}>×</button>
+
+//             <img
+//               src="https://cdn.pixabay.com/photo/2025/04/28/17/02/acacia-9565430_640.jpg"
+//               alt=""
+//               style={{ width: '100%', borderRadius: '10px' }}
+//             />
+//             <p style={{ marginTop: '10px' }}>
+//               اپنے شوہر سے اس بکواس کی امید نہ کریں.. نعمان اعجاز کا معاذ صفدر پر کڑا وار ! لڑکیوں کو اہم مشورہ
+//             </p>
+
+//             <div style={{ marginTop: '10px' }}>
+//               <p><strong>Dili Baseerat:</strong> محبت اور نعمت اشتہار کی چیزیں نہیں، نبھانے اور شکر کرنے کی کوشش کریں،</p>
+//               <p>Farah Noman: Bilkul thek kaha</p>
+//               <p>Zaib Chadhar: Nouman hamesha sahi bat krt han always right</p>
+//               <p>Umme Taha: Bilkul Sahi kaha</p>
+//               <p>Tamseel Shayan: Aisi umed bhi nhi hai</p>
+//               <p>Rabia Doll: Sai bol rahy hain</p>
+//               <p>Shazia Fayyaz: ...</p>
+//               <p>Nadia Jamal: Sahe kaha</p>
+//               <p>Uzma Raza: Well said...</p>
+//             </div>
+
+//             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '15px' }}>
+//               <button>Share</button>
+//               <button>Reply</button>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </>
+//   );
+// }
+
+
+
+
+
+// import React, { useState } from 'react'
+
+// export default function App() {
+//   const [input , setInput] = useState('')
+//   const [saveInput , setSaveinput] = useState('')
+//   const [check , setCheck] = useState(false)
+//   const [Num , setNum] = useState(true)
+
+//   function PasswordCheck(){
+// if(check == false){
+//   setSaveinput(input)
+//   setInput('')
+//   setCheck(true)
+// }
+// else if(input == saveInput){
+//   alert('braber hai')
+//   setNum(false)
+// }
+// else{
+//   alert('braber nahi hai')
+// }
+//   }
+//   return (
+// <div>
+//   {Num && <>
+//   <input
+//   type="text"  // This is fine if you don't care about hiding characters
+//   value={input}
+//   onChange={(e) => setInput(e.target.value)}
+// />
+//     <button onClick={()=> PasswordCheck()}>{check ? 'Next' : 'ConFirm'}</button>
+//   </>}
+
+//   <h1>{!Num &&  'Hello bhai kiya hal hai....'}</h1>
+// </div>
+//   )
+// }
+
+
+// import React from 'react'
+// import Cards from './component/cards';
+
+// export default function App() {
+//     const students = [
+//   { name: "Ali", age: 18, class: "10th" },
+//   { name: "Sara", age: 17, class: "9th" },
+//   { name: "Hamza", age: 19, class: "11th" },
+//   { name: "Ayesha", age: 18, class: "10th" }
+// ];
+
+
+// const studentss = [
+//   { name: "Zainab", age: 16, class: "8th" },
+//   { name: "Usman", age: 20, class: "12th" },
+//   { name: "Farhan", age: 18, class: "10th" },
+//   { name: "Mehwish", age: 17, class: "9th" },
+//   { name: "Bilal", age: 19, class: "11th" }
+// ];
+
+//   return (
+//     <div>
+//         <div style={{
+//             display : 'flex'
+//         }}>
+//         {students.map((item)=>{
+//           return (
+//               <Cards name={item.name} age={item.age} classes={item.class}/>
+//           )
+//         })}
+//     </div>
+
+//     <div style={{
+//         display : 'flex'
+//     }}>
+//         {studentss.map((item)=>{
+//           return (
+//               <Cards name={item.name} age={item.age} classes={item.class}/>
+//           )
+//         })}
+//     </div>
+//     </div>
+//   )
+// }
+
+
+// import React, { useState } from 'react'
+// import Data from '../Data';
+
+// export default function App() {
+//   const jsTalk = [
+//   "JavaScript ek programming language hai jo websites ko zinda banata hai.",
+//   "Isse hum buttons, animations, aur user actions ko control kar sakte hain.",
+//   "Yeh browser ke andar chalta hai, bina kisi software ke.",
+//   "React, Vue, Angular — ye sab JavaScript frameworks hain.",
+//   "JavaScript ke bina web sirf ek boring photo hota."
+// ];
+
+//   return (
+//     <div>{jsTalk.map((item)=>{
+//       return <Data item={item}/>
+//     })}</div>
+//   )
+// }
+
+
+
+// import React, { useState } from 'react';
+
+// export default function App() {
+//   const [handle, setHandle] = useState([]);
+//   const [input, setInput] = useState('');
+//   const [filtered, setFiltered] = useState('All');
+
+//   function HandleSubmit() {
+//     if (input.trim() === "") return; 
+//     setHandle((prev) => [
+//       ...prev,
+//       { id: Date.now(), input: input, check: false },
+//     ]);
+//     setInput('');
+//   }
+
+//   function CheckedTodo(id) {
+//     setHandle(
+//       handle.map((item) =>
+//         item.id === id ? { ...item, check: !item.check } : item
+//       )
+//     );
+//     setFiltered('All');
+//   }
+
+//   const filtred = handle.filter((item) => {
+//     if (filtered === 'checked') return item.check;
+//     if (filtered === 'unchecked') return !item.check;
+//     return true;
+//   });
+  
+//   return (
+//     <div
+//       style={{
+//         height: '100vh',
+//         backgroundColor: 'gray',
+//         padding: '20px',
+//       }}
+//     >
+//       <div
+//         style={{
+//           display: 'flex',
+//           justifyContent: 'center',
+//           alignItems: 'center',
+//           gap: '10px',
+//         }}
+//       >
+//         <input
+//           value={input}
+//           onChange={(e) => setInput(e.target.value)}
+//           style={{
+//             width: '50%',
+//             height: '40px',
+//             outline: 'none',
+//             borderRadius: '7px',
+//             fontSize: '20px',
+//             padding: '0 10px',
+//           }}
+//           type="text"
+//         />
+//         <button
+//           onClick={HandleSubmit}
+//           style={{
+//             height: '43px',
+//             width: '130px',
+//             fontSize: '20px',
+//             fontFamily: 'cursive',
+//             borderRadius: '10px',
+//           }}
+//         >
+//           Add Todo
+//         </button>
+//       </div>
+
+//       <div
+//         style={{
+//           display: 'flex',
+//           justifyContent: 'center',
+//           gap: '10px',
+//           marginTop: '20px',
+//         }}
+//       >
+//         <button
+//           onClick={() => setFiltered('checked')}
+//           style={{
+//             width: '150px',
+//             padding: '5px',
+//             fontSize: '20px',
+//             backgroundColor: 'lightsalmon',
+//           }}
+//         >
+//           Checked
+//         </button>
+//         <button
+//           onClick={() => setFiltered('unchecked')}
+//           style={{
+//             width: '150px',
+//             padding: '5px',
+//             fontSize: '20px',
+//             backgroundColor: 'lightsalmon',
+//           }}
+//         >
+//           Unchecked
+//         </button>
+//         <button
+//           onClick={() => setFiltered('All')}
+//           style={{
+//             width: '150px',
+//             padding: '5px',
+//             fontSize: '20px',
+//             backgroundColor: 'lightsalmon',
+//           }}
+//         >
+//           All
+//         </button>
+//       </div>
+
+//       <div style={{ marginTop: '20px' }}>
+//         {filtred.map((item) => (
+//           <div
+//             key={item.id}
+//             style={{
+//               display: 'flex',
+//               alignItems: 'center',
+//               margin: '10px 0',
+//               gap: '10px',
+//               marginLeft: '30px',
+//             }}
+//           >
+//             <input
+//               type="checkbox"
+//               checked={item.check}
+//               onChange={() => CheckedTodo(item.id)}
+//             />
+//             <span
+//               style={{
+//                 fontSize: '25px',
+//                 textDecoration: item.check ? 'line-through' : 'none',
+//               }}
+//             >
+//               {item.input}
+//             </span>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+
+// import React, { useState } from 'react'
+
+// export default function App() {
+//   const searchTerms = [
+//   "ducky bhai",
+//   "salman saif",
+//   "techno gamerz",
+//   "carryminati",
+//   "mr beast",
+//   "ishq murshid episode 1",
+//   "pakistan news live",
+//   "coke studio season 15",
+//   "baby lullabies",
+//   "pubg montage",
+//   "css tutorial in urdu",
+//   "python course for beginners",
+//   "eid mubarak wishes",
+//   "latest mobile unboxing",
+//   "fawad khan drama",
+//   "imran khan latest news",
+//   "hajj 2025 updates",
+//   "matric result 2025",
+//   "nashpati prime drama",
+//   "asif ali memes",
+//   "mr indian hacker",
+//   "tiktok viral dance",
+//   "eid ul azha qurbani tips",
+//   "lahore rain today",
+//   "new bike launch pakistan"
+// ];
+
+
+//   const [input, setInput] = useState('');
+//   const [check, setCheck] = useState(false);
+
+//   const filtered = searchTerms.filter((item)=> {
+//     return item.includes(input)
+//   })
+
+//   const handleParentClick = () => {
+//     setCheck(false);
+//   };
+
+//   const handleInputClick = (e) => {
+//     e.stopPropagation();
+//     setCheck(true);
+//   };
+
+//   return (
+//     <div onClick={handleParentClick} style={{
+//       width : '100%',
+//       height : '100vh',
+//     }}>
+//       <div>
+//         <input
+//           type="text"
+//           onChange={(e) => setInput(e.target.value)}
+//           onClick={handleInputClick}
+//         />
+//       <div className=''>
+//   {check && filtered.map((item)=>{
+//     return (
+//       <p>{item}</p>
+//     )
+//   })}
+//       </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+// import React from 'react';
+// import FeatureSection from '../FeatureSection';
+
+// function App() {
+//  const features = [
+//   {
+//     tag: 'Effortless Scheduling',
+//     before: 'Automate',
+//     highlightWord: 'Meeting',
+//     after: 'Scheduling',
+//     description: 'Our solution reduces manual effort, minimizes errors, and ensures seamless coordination...',
+//     image: '/assets/meeting.png',
+//     highlightColor: 'text-purple-400',
+//   },
+//   {
+//     tag: 'Smart Reminders',
+//     before: 'Get Smart',
+//     highlightWord: 'Alerts',
+//     after: 'to Stay on Track',
+//     description: 'Our system ensures your tasks with intelligent notifications...',
+//     image: '/assets/alerts.png',
+//     highlightColor: 'text-pink-400',
+//   },
+//   {
+//     tag: 'Task Management',
+//     highlightWord: 'Organize',
+//     after: 'Your Tasks Easily',
+//     description: 'Keep your tasks in order with minimal effort...',
+//     image: '/assets/tasks.png',
+//     highlightColor: 'text-cyan-400',
+//   },
+//   {
+//     tag: 'AI Recognition',
+//     before: 'Recognize Key Information',
+//     highlightWord: 'Automatically',
+//     description: 'Use intelligent recognition to filter what matters most...',
+//     image: '/assets/recognize.png',
+//     highlightColor: 'text-yellow-400',
+//   },
+//   {
+//     tag: 'Unified Integration',
+//     before: 'Seamlessly',
+//     highlightWord: 'Integrate',
+//     after: 'Everything in One Place',
+//     description: 'Connect tools, calendars, and more into one place...',
+//     image: '/assets/integrate.png',
+//     highlightColor: 'text-green-400',
+//   },
+// ];
+
+
+//   return (
+//     <div className="bg-black min-h-screen text-white font-sans px-4 md:px-12">
+//       {features.map((feature, index) => (
+//         <FeatureSection
+//           key={index}
+//           {...feature}
+//           reverse={index % 2 !== 0} // alternate left/right layout
+//         />
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// import React, { useState } from 'react'
+// import FeatureSection from '../FeatureSection';
+
+// export default function App() {
+  
+
+// const faqData = [
+//   {
+//     question: "React JS kya hai?",
+//     answer: "React JS ek JavaScript library hai jo user interfaces banane ke liye use hoti hai. Yeh component-based architecture ko follow karti hai aur efficiently DOM update karti hai."
+//   },
+//   {
+//     question: "Tailwind CSS ka use kyu hota hai?",
+//     answer: "Tailwind CSS ek utility-first CSS framework hai jo rapid UI development ko easy banata hai. Isme har class ek specific style represent karti hai."
+//   },
+//   {
+//     question: "State aur Props mein kya farq hai?",
+//     answer: "Props components ko data pass karne ke liye hote hain, jabke State ek component ke andar ka dynamic data hota hai jo change ho sakta hai."
+//   },
+//   {
+//     question: "React mein useEffect kab use hota hai?",
+//     answer: "useEffect side effects handle karne ke liye use hota hai, jaise data fetch karna, DOM manipulate karna, ya event listeners attach karna."
+//   },
+//   {
+//     question: "Component reusability kya hoti hai?",
+//     answer: "React mein component reusability ka matlab hai ek hi component ko multiple jagah use kar paana — jaise button, card, modal etc., with different props."
+//   }
+// ];
+
+// const [array , setAray] = useState([])
+
+// function Num(index){
+// if(array.includes(index)){
+//  setAray(array.filter((_ , i)=> i !== index))
+
+// }
+// else{
+//   setAray([...array , index])
+// }
+// }
+
+//   return (
+//     <div>
+//       {faqData.map((item , index)=>{
+//         return <FeatureSection question={item.question} answer={item.answer} funq={Num} index={index} array={array}/>
+//       })}
+//     </div>
+//   )
+// }
+
+
+
+// import React from 'react'
+
+// function App() {
+//   return (
+//     <div>App</div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useState } from 'react'
+// import Button from './Button'
+
+// function App() {
+//   const [box , setBox] = useState(['red' , 'blue' , 'green' , 'yellow' , 'black'])
+//   const [index , setIndex] = useState('red')
+//   const [Data , setData] = useState('red')
+
+//   function Get(alignItems){
+// setBox(box.map((item) => item ==  alignItems ? 'brown' : item))
+//   }
+//   return (
+//   <div>
+//       <div>
+//       {box.map((item)=>{
+         
+// return (
+//   <Button item={item} index={index} setIndex={setIndex} Get={Get}/>
+// )
+  
+//       })}
+      
+//     </div>
+//     <h1>{Data}</h1>
+//   </div>
+//   )
+// }
+
+// export default App
+
+// components/Navbar.js
+// 'use client'
+// import { useState } from 'react';
+
+// const navItems = [
+//   {
+//     title: 'Features',
+//     submenu: ['Feature 1', 'Feature 2', 'Feature 3'],
+//   },
+//   {
+//     title: 'FAQ',
+//     submenu: ['FAQ 1', 'FAQ 2'],
+//   },
+//   {
+//     title: 'How It Works',
+//     submenu: ['Step 1', 'Step 2'],
+//   },
+//   {
+//     title: 'Contact',
+//     submenu: ['Email', 'Phone'],
+//   },
+  
+// ];
+
+// export default function Navbar() {
+//   const [activeMenu, setActiveMenu] = useState(null);
+// console.log(activeMenu);
+
+//   return (
+//     <nav className="bg-gray-900 text-white p-4">
+//       <ul className="flex space-x-8">
+//         {navItems.map((item, index) => (
+//           <li
+//             key={index}
+//             className="relative"
+//             onMouseEnter={() => setActiveMenu(index)}
+//             onMouseLeave={() => setActiveMenu(null)}
+//           >
+//             <span className="cursor-pointer">{item.title}</span>
+
+//             {activeMenu === index && (
+//               <ul className="absolute left-0 mt-2 bg-white text-black shadow-md p-3 space-y-2 rounded w-40 z-10">
+//                 {item.submenu.map((sub, subIndex) => (
+//                   <li key={subIndex} className="hover:underline">{sub}</li>
+//                 ))}
+//               </ul>
+//             )}
+//           </li>
+//         ))}
+//       </ul>
+//     </nav>
+//   );
+// }
+
+// import React from 'react';
+
+// const data = [
+//   { id: 1, text: 'Left Box' },
+//   { id: 2, text: 'Right Box' },
+// ];
+
+// const App = () => {
+//   return (
+//     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-10">
+//       <div className="flex gap-10 items-center">
+//         {/* Left Box */}
+//         <div className="w-40 h-64 bg-white rounded-xl shadow flex items-center justify-center text-xl font-semibold">
+//           {data[0].text}
+//         </div>
+
+//         {/* Center Section */}
+//         <div className="flex flex-col items-center gap-6">
+//           {/* Top 2 Vertical Boxes */}
+//           <div className="flex flex-col gap-4">
+//             <div className="w-40 h-24 bg-blue-200 rounded-md flex items-center justify-center">Box 1</div>
+//             <div className="w-40 h-24 bg-blue-200 rounded-md flex items-center justify-center">Box 2</div>
+//           </div>
+
+//           {/* Bottom 3 Horizontal Boxes */}
+//           <div className="flex gap-4">
+//             <div className="w-24 h-20 bg-green-200 rounded-md flex items-center justify-center">Box A</div>
+//             <div className="w-24 h-20 bg-green-200 rounded-md flex items-center justify-center">Box B</div>
+//             <div className="w-24 h-20 bg-green-200 rounded-md flex items-center justify-center">Box C</div>
+//           </div>
+//         </div>
+
+//         {/* Right Box */}
+//         <div className="w-40 h-64 bg-white rounded-xl shadow flex items-center justify-center text-xl font-semibold">
+//           {data[1].text}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+// import { useScroll } from 'framer-motion';
+// import { div } from 'framer-motion/m';
+// import React, { useState } from 'react'
+
+// function App() {
+    
+// const quizData = [
+//   {
+//     question: "Which JavaScript framework do you prefer?",
+//     options: [
+//       { text: "React", votes: 120 },
+//       { text: "Vue", votes: 80 },
+//       { text: "Angular", votes: 40 },
+//       { text: "Svelte", votes: 20 },
+//       { text: "SolidJS", votes: 10 },
+//     ]
+//   },
+//   {
+//     question: "Which CSS framework do you use the most?",
+//     options: [
+//       { text: "Tailwind", votes: 100 },
+//       { text: "Bootstrap", votes: 70 },
+//       { text: "Material UI", votes: 30 },
+//       { text: "Bulma", votes: 10 },
+//       { text: "Chakra UI", votes: 5 },
+//     ]
+//   },
+//   {
+//     question: "Which programming language do you love most?",
+//     options: [
+//       { text: "JavaScript", votes: 150 },
+//       { text: "Python", votes: 130 },
+//       { text: "Java", votes: 90 },
+//       { text: "C++", votes: 50 },
+//       { text: "Go", votes: 20 },
+//     ]
+//   },
+//   {
+//     question: "Which backend framework do you use?",
+//     options: [
+//       { text: "Express.js", votes: 100 },
+//       { text: "Django", votes: 60 },
+//       { text: "Laravel", votes: 50 },
+//       { text: "Spring Boot", votes: 30 },
+//       { text: "FastAPI", votes: 25 },
+//     ]
+//   },
+//   {
+//     question: "Which database do you prefer?",
+//     options: [
+//       { text: "MongoDB", votes: 110 },
+//       { text: "MySQL", votes: 90 },
+//       { text: "PostgreSQL", votes: 70 },
+//       { text: "SQLite", votes: 30 },
+//       { text: "Firebase", votes: 20 },
+//     ]
+//   },
+//   {
+//     question: "Which code editor do you use?",
+//     options: [
+//       { text: "VS Code", votes: 200 },
+//       { text: "Sublime Text", votes: 40 },
+//       { text: "Atom", votes: 15 },
+//       { text: "WebStorm", votes: 30 },
+//       { text: "Vim", votes: 20 },
+//     ]
+//   },
+//   {
+//     question: "Which OS do you prefer for development?",
+//     options: [
+//       { text: "Windows", votes: 110 },
+//       { text: "macOS", votes: 80 },
+//       { text: "Linux", votes: 90 },
+//       { text: "Ubuntu", votes: 50 },
+//       { text: "Fedora", votes: 10 },
+//     ]
+//   },
+//   {
+//     question: "Which cloud platform do you use?",
+//     options: [
+//       { text: "AWS", votes: 90 },
+//       { text: "Google Cloud", votes: 70 },
+//       { text: "Azure", votes: 60 },
+//       { text: "Vercel", votes: 40 },
+//       { text: "Netlify", votes: 30 },
+//     ]
+//   },
+//   {
+//     question: "Which frontend library do you enjoy most?",
+//     options: [
+//       { text: "React", votes: 160 },
+//       { text: "Next.js", votes: 100 },
+//       { text: "Vue", votes: 70 },
+//       { text: "Svelte", votes: 30 },
+//       { text: "Alpine.js", votes: 20 },
+//     ]
+//   },
+//   {
+//     question: "Which mobile framework do you prefer?",
+//     options: [
+//       { text: "React Native", votes: 120 },
+//       { text: "Flutter", votes: 100 },
+//       { text: "Ionic", votes: 30 },
+//       { text: "SwiftUI", votes: 20 },
+//       { text: "Kotlin", votes: 10 },
+//     ]
+//   }
+// ];
+
+// const [more , setMore] = useState(0)
+// const [check , setCheck] = useState(false)
+//   return (
+//         <div className='w-full h-[100vh] flex justify-center items-center flex-col 	bg-[#022250] text-white'>
+//       <div className='flex flex-col gap-10'>
+//               <span></span>  <h1 className='text-[40px] font-mono'>{quizData[more].question}</h1>
+//         <div className='flex items-start flex-col text-start gap-3 '>{quizData[more].options.map((item , index)=>{
+//             return (
+//                <div className='border-2 border-blue-700 w-full  py-2 px-5 flex justify-between items-center' onClick={() => {
+//                 setCheck(true)
+        
+//                }}>
+//                  <div className=' text-[30px] text-white font-mono'>{item.text}</div>
+//            <div className='text-[30px] text-white font-mono'>{check && item.votes}{check && '%'}</div>
+//                </div>
+//             )
+//         })}</div>
+//         <button className='border-1 px-10 py-4 text-2xl uppercase font-mono border-blue-700'  onClick={()=> {
+//             if(check){
+//     setMore(more + 1)
+//              setCheck(false)
+//             }
+//         }}>next</button>
+//       </div>
+//     </div>
+
+//     )
+//     }
+
+//     export default App
+
+
+
+
+// function App() {
+//   const [array, setArray] = useState([]);
+//   const [input, setInput] = useState('');
+//    const [selected, setSelected] = useState('All');
+//    const [editId, setEditId] = useState(null);
+
+//   function AddData() {
+//    if(editId){
+//     setArray(array.map((item)=> item.id == editId ? {...item  , input} : item))
+//     setEditId(null)
+//      setInput('');
+    
+//    }
+//    else{
+//      setArray([...array, { id: Date.now(), complete: false, input }]);
+//     setInput('');
+//     setSelected('All')
+//    }
+//   }
+
+
+//   const Filterd = array.filter((item)=> {
+//     if(selected == 'All') return true;
+//     if(selected === 'Complete') return item.complete;
+//     if(selected == 'UnCompleted') return !item.complete
+//   })
+
+//     function  toggleTask(id){
+//    setArray(
+//     array.map((item)=> {
+//         return item.id == id ? {...item , complete : !item.complete} : item
+//      })
+//    )
+//   }
+
+
+//   function deleteTodo(id){
+//     setArray(array.filter((item)=> {
+//       return item.id !== id
+//     }))
+//   }
+
+
+//   function EditTodo(input , id){
+//    setInput(input)
+//    setEditId(id)
+//   }
+//   return (
+//     <div className="w-full">
+//       <div className="flex flex-col items-center w-full  justify-start mt-10">
+//         <div>
+//           <input
+//             onChange={(e) => setInput(e.target.value)}
+//             value={input}
+//             type="text"
+//             className="border w-[700px] h-14 p-2  outline-none border-gray-700 m-2"
+//             placeholder="Enter your todos"
+//           />
+//           <button
+//             className="border bg-black text-white px-10 py-4 m-2"
+//             onClick={AddData}
+//           >
+//         {editId ? 'Update' : 'Add Todo'}
+//           </button>
+//           <div className="flex gap-4 justify-center items-center">
+//                 <button
+//         onClick={() => setSelected('All')}
+//         className={`border w-[150px] h-10 ${
+//           selected === 'All' ? 'bg-black text-white' : ''
+//         }`}
+//       >
+//         All
+//       </button>
+
+//       <button
+//         onClick={() => setSelected('Complete')}
+//         className={`border w-[150px] h-10 ${
+//           selected === 'Complete' ? 'bg-black text-white' : ''
+//         }`}
+//       >
+//         Complete
+//       </button>
+
+//       <button
+//         onClick={() => setSelected('UnCompleted')}
+//         className={`border w-[150px] h-10 ${
+//           selected === 'UnCompleted' ? 'bg-black text-white' : ''
+//         }`}
+//       >
+//         Un Completed
+//       </button>
+//           </div>
+//         </div>
+
+//         <div className="w-[860px] flex flex-col gap-4 mt-4">
+//           {Filterd.length < 1 ? 'Not Found' : Filterd.map((item) => (
+//             <div key={item.id} className="py-4 border  px-3 flex justify-between">
+//               <div className="flex gap-5">
+//                 <input type="checkBox" checked={item.complete} className="w-5" onChange={()=> toggleTask(item.id)}/>
+//            <h1 className={`text-2xl ${item.complete && 'line-through'}`}>{item.input}</h1>
+//               </div>
+//             <div className="flex gap-3">
+//                 <button onClick={()=> deleteTodo(item.id)}>Delete</button>
+//               <button onClick={()=> EditTodo(item.input , item.id)}>Edit</button>
+//             </div>
+//             </div>
+//           ))} 
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// import React from 'react';
+
+// function App() {
+//   const array = ['Pakistan', 'America', 'China'];
+//   const course = ['graphic' , 'web development' , 'word press']
+//   const [num , setNum] = useState('')
+
+//   console.log(num);
+  
+//   return (
+//     <div>
+//      <select onChange={(e)=> setNum(e.target.value)}
+//   className="border border-gray-400 px-4 py-2 rounded"
+// >
+//   <option value="">Select a Country</option>
+//   {array.map((item) => (
+//     <option key={item} value={item}>
+//       {item}
+//     </option>
+//   ))}
+// </select>
+
+//      <select
+//   className="border border-gray-400 px-4 py-2 rounded">
+//   <option value="">Select a course</option>
+//   {num ? course.map((item , i)=> {
+//   return (
+//  <option key={i} value={item}>{item}</option>
+//   )
+//   }) : ''}
+// </select>
+
+
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+// import React from 'react';
+
+// function App() {
+//     const [Random, setRandom] = useState(null);
+//     const [positions, setPositions] = useState([0, 0, 0, 0]); // 4 players
+//     const [prevIndexes, setPrevIndexes] = useState([null, null, null, null]);
+//     const [array, setArray] = useState(Array.from({ length: 100 }, (_, i) => i + 1));
+//     const [player, setPlayer] = useState(1);
+
+//     function handleDice() {
+//         const random = Math.floor(Math.random() * 6) + 1;
+//         setRandom(random);
+
+//         setArray(prev => {
+//             let newArr = [...prev];
+//             if (prevIndexes[player - 1] !== null && prevIndexes[player - 1] < newArr.length) {
+//                 newArr[prevIndexes[player - 1]] = prevIndexes[player - 1] + 1;
+//             }
+//             const newPos = positions[player - 1] + random;
+//             if (newPos - 1 < newArr.length) {
+//                 newArr[newPos - 1] =
+//                     player === 1
+//                         ? 'munneb'
+//                         : player === 2
+//                         ? 'huzaifa'
+//                         : player === 3
+//                         ? 'rafay'
+//                         : 'hadi';
+//             }
+//             return newArr;
+//         });
+
+
+//         setPositions(prev => {
+//             const updated = [...prev];
+//             updated[player - 1] = prev[player - 1] + random;
+//             return updated;
+//         });
+//         setPrevIndexes(prev => {
+//             const updated = [...prev];
+//             updated[player - 1] = positions[player - 1] + random - 1;
+//             return updated;
+//         });
+
+//         setPlayer(player === 4 ? 1 : player + 1);
+//     }
+
+//     return (
+//         <div>
+//             <div className="flex justify-center items-center flex-wrap">
+//                 {array.map((item, i) => (
+//                     <div
+//                         key={i}
+//                         className="w-30 h-30 border-2 text-center text-2xl flex justify-center items-center"
+//                     >
+//                         {item}
+//                     </div>
+//                 ))}
+//             </div>
+//             <h1>{Random}</h1>
+//             <button className="border px-10 py-2 bg-red-500" onClick={handleDice}>
+//                 Dice
+//             </button>
+//             <h1 className="text-3xl">
+//                 {player === 1
+//                     ? 'munneb'
+//                     : player === 2
+//                     ? 'huzaifa'
+//                     : player === 3
+//                     ? 'rafay'
+//                     : 'hadi'}
+//             </h1>
+//         </div>
+//     );
+// }
+
+// export default App;
+
+// import React from "react";
+
+// function App() {
+//   const youtubeSidebar = [
+//     {
+//       section: "Main",
+//       items: [
+//         { title: "Home", path: "/home" },
+//         { title: "Shorts", path: "/shorts" },
+//         { title: "Subscriptions", path: "/subscriptions" },
+//       ],
+//     },
+//     {
+//       section: "You",
+//       items: [
+//         { title: "History", path: "/history" },
+//         { title: "Playlists", path: "/playlists" },
+//         { title: "Your videos", path: "/your-videos" },
+//         { title: "Watch later", path: "/watch-later" },
+//         { title: "Liked videos", path: "/liked-videos" },
+//       ],
+//     },
+//     {
+//       section: "Subscriptions",
+//       items: [
+//         { title: "Mustafa Hanif" },
+//         { title: "Salman Saif" },
+//         { title: "Zalmi" },
+//         { title: "BABA OP VLOGS" },
+//         { title: "Little Zalmi" },
+//         { title: "Techno Gamerz" },
+//         { title: "Fahad Bhai Official" },
+//         { title: "Show more" },
+//       ],
+//     },
+//     {
+//       section: "Explore",
+//       items: [
+//         { title: "Music", path: "/music" },
+//         { title: "Gaming", path: "/gaming" },
+//         { title: "News", path: "/news" },
+//       ],
+//     },
+//   ];
+
+//   return (
+//     <div className="flex min-h-screen  bg-gray-100">
+//       {/* Sidebar */}
+//       <div className="w-[256px]  px-4 py-4 overflow-y-auto bg-white border-r">
+//         {youtubeSidebar.map((section, index) => (
+//           <div key={index} className="mb-5">
+//             <div className="text-sm font-semibold text-gray-600 mb-2">
+//               {section.section}
+//             </div>
+//             <div>
+//               {section.items.map((item, idx) => (
+//                 <div
+//                   key={`${item.title}-${idx}`}
+//                   className="text-[16px] text-gray-800 py-1 border-b border-gray-200 hover:bg-gray-200 cursor-pointer rounded px-2"
+//                 >
+//                   {item.title}
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+
+//       {/* Main Content */}
+//       <div className="flex-1 p-6">
+//         {/* Buttons */}
+//         <div className="flex  gap-1 mb-6">
+//           {Array(11)
+//             .fill("Shahid Kapoor")
+//             .map((name, index) => (
+//               <button
+//                 key={index}
+//                 className="border px-4 py-1 rounded bg-white hover:bg-gray-100 shadow-sm"
+//               >
+//                 {name}
+//               </button>
+//             ))}
+//         </div>
+
+//         {/* Cards */}
+//         <div className="flex flex-wrap  gap-4">
+//           {Array(7).fill(0).map((_, index) => (
+//             <div
+//               key={index}
+//               className="border w-[392px] h-[300px] p-3 rounded bg-white shadow"
+//             >
+//               <h1 className="font-bold text-lg mb-1">Hello Message</h1>
+//               <p className="text-sm">Hello, my name is Huzaifa</p>
+//               <p className="text-green-600 font-semibold">Price: $4000</p>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+// import React, { useState } from 'react'
+
+// function App() {
+//   const [index , setIndex] = useState(0)
+//   const formOptions = [
+//   {
+//     label: "Sales",
+//     image: "https://cdn.pixabay.com/objects3d/2025/07/21/14-41-47-275/render_720_720_0_340_0.png",
+//     fields: ["Full Name", "Email", "Phone", "Message"]
+//   },
+//   {
+//     label: "Support",
+//     image: "https://cdn.pixabay.com/objects3d/2025/07/17/13-32-28-467/render_720_720_0_340_0.png",
+//     fields: ["Full Name", "Email", "Phone", "Message"]
+//   },
+//   {
+//     label: "Press & Media",
+//     image: "https://cdn.pixabay.com/objects3d/2025/07/17/14-02-20-35_720x720.png",
+//     fields: ["Last Name", "Email", "Phone", "Message"]
+//   }
+// ];
+
+//   return (
+//      <div className="flex gap-5 items-center justify-center">{formOptions.map((item , i)=>{
+//       return (
+// <div>
+//   <div>
+//              <button onClick={()=> setIndex(i)} className="border px-7 py-2 m-5 rounded-full  bg-amber-300 border-none text-white font-bold">{item.label}</button>
+// </div>
+    
+//     <div>
+//       {index === i  &&  <img className="w-[100px]" src={item.image} />}
+//     </div>
+//     <div>{item.fields.map((item)=>{
+//       return (
+//         <div>
+//        { index === i  &&  <input className="border" type="text" placeholder={item}/> }
+//         </div>
+//       )
+//     })}</div>
+// </div>
+//       )
+//      })}</div>
+//   )
+// }
+
+// export default App
+
+
+
+// import React from 'react';
+
+// const services = [
+//   { name: 'Graphic Design' },
+//   { name: 'Mobile App Development' },
+//   { name: 'UI/UX Design' },
+//   { name: 'Backend Development' },
+//   { name: 'SEO' },
+//   { name: 'Web Development' },
+// ];
+
+// function App() {
+//   return (
+//     <div className="flex flex-col md:flex-row items-start gap-16 justify-center p-10 bg-[#111]">
+//       {/* Image */}
+//       <img
+//         src="https://pluraldynamics.com/wp-content/uploads/2024/12/couple-working-at-night-2021-04-05-14-48-36-utc.jpg"
+//         alt="Team working"
+//         className="w-full md:w-[600px] rounded-md"
+//       />
+
+//       {/* Right Section */}
+//       <div className="flex flex-col gap-4 max-w-xl">
+//         {/* Tag Line */}
+//         <div className="flex items-center gap-3">
+//           <div className="w-16 h-0.5 bg-red-600"></div>
+//           <h2 className="text-[20px] font-bold text-red-600">WHAT WE DO</h2>
+//         </div>
+
+//         {/* Heading */}
+//         <h1 className="text-[45px] md:text-[60px] leading-tight font-bold text-white">
+//           Product Featured <br />
+//           <span className="text-red-500">Service</span>
+//         </h1>
+
+//         {/* Paragraph */}
+//         <p className="text-gray-300 font-medium">
+//           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel ornare odio, eget sagittis nisl. Nullam vulputate risus ut nisi mollis, et euismod augue rhoncus. Donec ut laoreet leo.
+//         </p>
+
+//         {/* Services List */}
+//         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 py-6 text-white">
+//           {services.map((service, index) => (
+//             <li key={index} className="flex items-center gap-2">
+//               <span className="bg-red-600 text-black rounded-full w-[28px] h-[28px] flex items-center justify-center text-sm font-bold">✔</span>
+//               {service.name}
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+// import React from 'react'
+
+// function App() {
+//   const products = [
+//   {
+//     id: 1,
+//     name: "Blue Graphic Tee",
+//     category: "Boys",
+//     subCategory: "T-Shirts",
+//     price: 999,
+//     sizes: ["S", "M", "L"],
+//     image: "https://example.com/images/boys-tshirt1.jpg"
+//   },
+//   {
+//     id: 2,
+//     name: "Girls Pink Frock",
+//     category: "Girls",
+//     subCategory: "Frocks",
+//     price: 1499,
+//     sizes: ["S", "M", "L"],
+//     image: "https://example.com/images/girls-frock1.jpg"
+//   },
+//   {
+//     id: 3,
+//     name: "Kids Cartoon Hoodie",
+//     category: "Kids",
+//     subCategory: "Hoodies",
+//     price: 1799,
+//     sizes: ["XS", "S", "M"],
+//     image: "https://example.com/images/kids-hoodie1.jpg"
+//   },
+//   {
+//     id: 4,
+//     name: "Boys Denim Jeans",
+//     category: "Boys",
+//     subCategory: "Jeans",
+//     price: 1299,
+//     sizes: ["M", "L", "XL"],
+//     image: "https://example.com/images/boys-jeans1.jpg"
+//   },
+//   {
+//     id: 5,
+//     name: "Girls Casual Top",
+//     category: "Girls",
+//     subCategory: "Tops",
+//     price: 799,
+//     sizes: ["S", "M", "L"],
+//     image: "https://example.com/images/girls-top1.jpg"
+//   },
+//   {
+//     id: 6,
+//     name: "Kids Pajama Set",
+//     category: "Kids",
+//     subCategory: "Sleepwear",
+//     price: 1199,
+//     sizes: ["XS", "S", "M"],
+//     image: "https://example.com/images/kids-pajama1.jpg"
+//   }
+// ];
+
+//   return (
+//     <div className='flex'>{products.map((item)=>{
+//       return (
+//         <div className='border w-[200px]'>
+//           <h1>{item.name}</h1>
+//           <h1>{item.price}</h1>
+//           <h1>{item.category}</h1>
+//         </div>
+//       )
+//     })}
+//     <div className='border-2 w-[200px]'>hello bhai kese ho</div>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+// import React from 'react'
+
+
+// function App() {
+
+//   const array = [
+//     {
+//       name : 'huzaifa',
+//       heading : 'lorem bhai kese ho'
+//     },
+//       {
+//       name : 'huzaifa',
+//       heading : 'lorem bhai kese ho'
+//     }
+//   ]
+//   return (
+//     <div className='flex justify-center m-10'>
+//       <div className='border w-[400px] h-[700px]'>
+//         <h1>name  : huzaifa</h1>
+//         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, commodi.</p>
+//       </div>
+//       <div>
+//        {array.map((item)=>{
+//         return (
+//             <div className='border h-[350px] w-[500px] '>
+//         <h1>name  : {item.name}</h1>
+//         <p>{item.heading}</p>
+//       </div>
+      
+//         )
+//        })}
+//       </div>
+//        <div className='border w-[400px] h-[700px]'>
+//         <h1>name  : huzaifa</h1>
+//         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, commodi.</p>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+// import React, { useState } from 'react'
+// import Crousal from './component/Crousal';
+
+// function App() {
+//   const carouselItems = [
+//   {
+//     id: 1,
+//     title: "Explore the Mountains",
+//     image: "https://i.pinimg.com/1200x/9a/14/9e/9a149e486da9f97a688fcab4ca12a3fe.jpg",
+//     description: "Breathtaking views and adventurous hikes await you."
+//   },
+//   {
+//     id: 2,
+//     title: "Relax by the Beach",
+//     image: "https://source.unsplash.com/800x400/?beach",
+//     description: "Feel the breeze and the sound of waves soothing your soul."
+//   },
+//   {
+//     id: 3,
+//     title: "City Lights",
+//     image: "https://source.unsplash.com/800x400/?city,night",
+//     description: "Discover the energy and culture of modern cities."
+//   },
+//   {
+//     id: 4,
+//     title: "Into the Forest",
+//     image: "https://source.unsplash.com/800x400/?forest",
+//     description: "Connect with nature and experience serene greenery."
+//   },
+//   {
+//     id: 5,
+//     title: "Desert Adventures",
+//     image: "https://source.unsplash.com/800x400/?desert",
+//     description: "Golden dunes and magical sunsets in the vast desert."
+//   }
+// ];
+
+// const [zero , setZero] = useState(0)
+
+//   return (
+//   <div className='flex items-center justify-around'>
+//   <button
+//   onClick={() =>
+//     setZero(prev => prev === 0 ? carouselItems.length - 1 : prev - 1)
+//   }
+//   className="border px-10 py-1"
+// >
+//   left
+// </button>
+
+//       <div>{carouselItems.map((item , index)=>{
+//       return  zero == index && <div>
+//         <Crousal pera={item.description} title={item.title} image={item.image} zero={zero}/>
+//       </div>
+     
+//     })}</div>
+   
+//       <button onClick={()=> setZero(prev => prev + 1 === carouselItems.length ? 0 : prev + 1)
+// } className='border px-10 py-1'>right</button>
+// <img src="https://firangikapra.com/cdn/shop/files/ottoman-weave-7880629_360x.jpg?v=1751421937" alt="" />
+//   </div>
+//   )
+// }
+
+// export default App
+
+
+
+// import React from 'react';
+// import { FaArrowRight } from 'react-icons/fa';
+
+// const productSections = [
+//   {
+//     id: 1,
+//     shop : 'SHOP NEW ARRIVALS',
+//      rotate : 'TOP FASHION',
+//     title: "Nylon Trace",
+//     description:
+//       "NylonTrace offers breathable comfort with a clean look -\nperfect for daily wear or weekend plans.",
+//     image:
+//       "https://firangikapra.com/cdn/shop/files/classic-edge-polo-7130150.jpg?v=1751256165",
+//     buttons: [
+//       {
+//         text: "Shop Nylon Trace",
+//         link: "/shop/nylon-trace",
+//       },
+//       {
+//         text: "Shop Trending Products",
+//         link: "/shop/trending",
+//       },
+//     ],
+//   },
+//   {
+//     id: 2,
+//     shop : 'SHOP NEW ARRIVALS',
+//     rotate : 'TOP FASHION',
+//     title: "Cotton Breeze",
+//     description:
+//       "CottonBreeze keeps things light and soft the go-to fabric\n for everyday ease and style.",
+//     image:
+//       "https://firangikapra.com/cdn/shop/files/classic-edge-polo-7130150.jpg?v=1751256165",
+//     buttons: [
+//       {
+//         text: "Shop Cotton Breeze",
+//         link: "/shop/cotton-breeze",
+//       },
+//       {
+//         text: "Shop Trending Products",
+//         link: "/shop/trending",
+//       },
+//     ],
+//   },
+//   {
+//     id: 3,
+//     shop : 'SHOP NEW ARRIVALS',
+//      rotate : 'TOP FASHION',
+//     title: "Linen Luxe",
+//     description:
+//       "LinenLuxe is airy, elegant, and timeless -\nperfect for warm days and cool evenings.",
+//     image:
+//       "https://firangikapra.com/cdn/shop/files/classic-edge-polo-7130150.jpg?v=1751256165",
+//     buttons: [
+//       {
+//         text: "Shop Linen Luxe",
+//         link: "/shop/linen-luxe",
+//       },
+//       {
+//         text: "Shop Trending Products",
+//         link: "/shop/trending",
+//       },
+//     ],
+//   },
+// ];
+
+// function App() {
+//   return (
+//     <div className="flex flex-col gap-16 items-center px-8 py-12">
+//       {productSections.map((item, index) => {
+//         const isEven = index % 2 === 0;
+
+//         return (
+//           <div
+//             key={item.id}
+//             className={`flex items-center gap-[150px] ${
+//               isEven ? "flex-row" : "flex-row-reverse"
+//             }`}
+//           >
+//             <div>
+//               <h1 className='text-end'>{item.shop}</h1>
+//            <div className="flex items-end gap-2 ">
+//   <h1 className="relative rotate-90 left-10 bottom-11">{item.rotate}</h1>  
+//   <img className=" w-[500px] rounded-lg" src={item.image} alt={item.title} />
+// </div>
+
+//             </div>
+//             <div>
+//               <h1 className="font-bold text-[50px] py-3">{item.title}</h1>
+//               <p className="whitespace-pre-line font-sans py-3 text-gray-500 text-[18px] leading-7">
+//                 {item.description}
+//               </p>
+//               <div className="flex flex-col gap-3 mt-4">
+//                 {item.buttons.map((button, btnIndex) => (
+//                   <div
+//                     key={btnIndex}
+//                     className="flex items-center justify-between cursor-pointer group"
+//                   >
+//                     <h1 className="font-bold text-2xl group-hover:underline">{button.text}</h1>
+//                     <FaArrowRight className="text-2xl transition-transform group-hover:translate-x-1" />
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+//           </div>
+//         );
+//       })}
+//     </div>
+//   );
+// }
+
+// App.jsx
+// import React from "react";
+// import Card from "./component/Cards";
+
+// function App() {
+//   const cards = [
+//     {
+//       type: "testimonial",
+//       text: "Chatbase is a strong signal of how customer support will evolve...",
+//       author: "Marc Manara",
+//       company: "OpenAI",
+//     },
+//     {
+//       type: "testimonial",
+//       text: "This is awesome, thanks for building it!",
+//       author: "Logan Kilpatrick",
+//       company: "Google",
+//     },
+//     {
+//       type: "stat",
+//       stat: "9000+",
+//       label: "businesses trust Chatbase",
+//     },
+//     {
+//       type: "stat",
+//       stat: "140+",
+//       label: "countries served",
+//     },
+//     {
+//       type: "testimonial",
+//       text: "An overpowered tool built with the OP stack.",
+//       author: "Greg Kogan",
+//       company: "Pinecone",
+//     },
+//     {
+//       type: "testimonial",
+//       text: "Our chatbot has been great. Answers questions it knows...",
+//       author: "Martin Terskin",
+//       company: "OfferMarket",
+//     },
+//   ];
+
+//   return (
+//     <div className="flex flex-wrap justify-center gap-6 p-10">
+//       {cards.map((item, index) => (
+//         <Card key={index} {...item} />
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import React, { useEffect, useState, useRef } from "react";
+
+// function App() {
+//   const [array, setArray] = useState([
+//     { id: 1, image: "https://cdn.pixabay.com/photo/2024/12/29/00/12/dog-9297049_1280.jpg" },
+//     { id: 2, image: "https://cdn.pixabay.com/photo/2022/12/06/14/56/cookie-cutters-7639169_1280.jpg" },
+//     { id: 3, image: "https://cdn.pixabay.com/objects3d/2025/07/11/04-41-36-591/render_720_720_0_340_0.png" },
+//     { id: 4, image: "https://cdn.pixabay.com/photo/2025/07/02/13/20/fishing-rod-9692407_1280.png" },
+//     { id: 5, image: "https://cdn.pixabay.com/photo/2021/08/31/10/34/boat-shed-6588414_1280.jpg" },
+//     { id: 6, image: "https://cdn.pixabay.com/photo/2025/06/02/02/48/chairs-9636132_1280.png" },
+//     { id: 7, image: "https://cdn.pixabay.com/photo/2024/05/18/17/29/ruhr-area-8770685_1280.png" },
+//     { id: 8, image: "https://cdn.pixabay.com/photo/2024/05/14/21/45/rhino-8762188_1280.jpg" },
+//     { id: 9, image: "https://cdn.pixabay.com/photo/2022/08/31/06/55/seaside-promenade-7422541_1280.jpg" },
+//     { id: 10, image: "https://cdn.pixabay.com/photo/2023/04/14/08/39/mountains-7923189_1280.jpg" },
+//   ]);
+
+//   const [filterImage, setFilterImage] = useState("");
+//   const [isRunning, setIsRunning] = useState(false);
+//   const availableImagesRef = useRef([]);
+
+//   const startRandom = () => {
+//     if (availableImagesRef.current.length === 0) return;
+
+//     setIsRunning(true);
+//     const pickRandomImage = () => {
+//       const random = Math.floor(Math.random() * availableImagesRef.current.length);
+//       setFilterImage(availableImagesRef.current[random]);
+//     };
+
+//     const interval = setInterval(pickRandomImage, 100);
+//     const timeout = setTimeout(() => {
+//       clearInterval(interval);
+//       setIsRunning(false);
+//     }, 2000);
+
+//     return () => {
+//       clearInterval(interval);
+//       clearTimeout(timeout);
+//     };
+//   };
+
+//   useEffect(() => {
+//     availableImagesRef.current = array.map(item => item.image);
+//     startRandom();
+//   }, []);
+
+
+//   const handleBoxClick = (id) => {
+//     if (isRunning || !filterImage) return; 
+
+//     setArray(prev =>
+//       prev.map(item =>
+//         item.id === id ? { ...item, tempImage: filterImage } : item
+//       )
+//     );
+
+
+//     availableImagesRef.current = availableImagesRef.current.filter(img => img !== filterImage);
+
+//     startRandom();
+//   };
+
+//   return (
+//     <div className="flex justify-around">
+//       {/* Left side - boxes */}
+//       <div>
+//         {array.map(item => (
+//           <div
+//             key={item.id}
+//             className="flex items-center m-2"
+//             style={{ gap: "10px" }}
+//           >
+//             {item.tempImage && (
+//               <div className="font-bold text-lg">{item.id}</div>
+//             )}
+//             <div
+//               onClick={() => handleBoxClick(item.id)}
+//               className="bg-amber-100 w-20 h-20 flex justify-center items-center overflow-hidden cursor-pointer"
+//             >
+//               {item.tempImage ? (
+//                 <img
+//                   src={item.tempImage}
+//                   alt="selected"
+//                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
+//                 />
+//               ) : (
+//                 item.id
+//               )}
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+
+//       {/* Right side - random image */}
+//       <div style={{ textAlign: "center", padding: "20px" }}>
+//         {filterImage && (
+//           <img
+//             src={filterImage}
+//             alt="Random"
+//             style={{
+//               maxWidth: "400px",
+//               borderRadius: "10px",
+//               transition: "opacity 0.2s",
+//             }}
+//           />
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// import React from "react";
+
+// import Cards from "./component/cards";
+
+
+
+// const educationData = [
+//   {
+//     id: 1,
+//     title: "MATRIC",
+//     years: "2018-2020",
+//     from: "From",
+//     institute: "Government Girls High School",
+//     location: "Lodhran",
+//     borderColor: "blue-500",
+//     titleColor: "cyan-500",
+//     ribbon: "Multan Board",
+//   },
+//   {
+//     id: 2,
+//     title: "INTERMEDIATE",
+//     years: "2020-2022",
+//     from: "From",
+//     institute: "Degree Collage For Women",
+//     location: "Lodhran",
+//     borderColor: "sky-400",
+//     titleColor: "sky-500",
+//     ribbon: "Multan Board",
+//   },
+//   {
+//     id: 3,
+//     title: "BACHOLAR",
+//     years: "2022-2024",
+//     from: "From",
+//     institute: "Degree Collage For Women",
+//     location: "Lodhran",
+//     borderColor: "purple-700",
+//     titleColor: "pink-500",
+//     ribbon: "Multan Board",
+//   },
+// ];
+
+// const skillsData = [
+//   {
+//     id: 4,
+//     title: "MS OFFICE",
+//     from: "From",
+//     institute: "Hexalogicx Software Institute",
+//     borderColor: "sky-400",
+//     titleColor: "gray-500",
+//     items: ["Word", "Excel", "Power point", "Access"],
+//   },
+//   {
+//     id: 5,
+//     title: "WEB DESIGNING",
+//     from: "From",
+//     institute: "Hexalogicx Software Institute",
+//     borderColor: "purple-700",
+//     titleColor: "gray-500",
+//     items: ["HTML", "CSS", "Bootstrap", "Javascript"],
+//   },
+//   {
+//     id: 6,
+//     title: "OTHER LANGUAGES",
+//     from: "From",
+//     institute: "Hexalogicx Software Institute",
+//     borderColor: "blue-500",
+//     titleColor: "gray-500",
+//     items: ["PHP", "MySQL", "Laravel", "C++"],
+//   },
+// ];
+
+// export default function EducationAndSkills() {
+//   return (
+//     <div className="flex flex-col items-center gap-12 py-10">
+//            <h2 className="text-xl font-bold text-blue-500">Education</h2>
+//       {/* Education */}
+//       <div className="flex flex-wrap justify-center gap-6">
+//         {educationData.map((card) => (
+//           <Cards key={card.id} {...card} />
+//         ))}
+//       </div>
+
+//       {/* Knowledge Title */}
+//       <h2 className="text-xl font-bold text-blue-500">Knowldge</h2>
+
+//       {/* Skills */}
+//       <div className="flex flex-wrap justify-center gap-6">
+//         {skillsData.map((card) => (
+//           <Cards key={card.id} {...card} />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+// import React from 'react'
+// import Heading from './Heading'
+
+// function App() {
+//   return (
+// <div>
+//       <Heading head='han bhai ?' sec=' where are you going'/>
+//     <Heading head='han bhai ?'/>
+// </div>
+//   )
+// }
+
+// export default App
+
+
+// export default function VideoLayout() {
+//   return (
+//     <div className="flex justify-center items-center min-h-screen bg-[#fff8e6] p-6">
+//       <div className="flex gap-6 w-[1100px]">
+        
+//         {/* Left Column */}
+//         <div className="flex flex-col flex-1">
+//           <img
+//             src="https://cdn.pixabay.com/photo/2021/01/19/10/32/people-5930795_1280.jpg"
+//             alt="Main"
+//             className="w-full h-[500px] object-cover rounded-2xl"
+//           />
+//           <div className="flex gap-4 mt-4">
+//             <img
+//               src="https://media.istockphoto.com/id/1142921771/photo/smiling-young-man-using-laptop.jpg?s=2048x2048"
+//               className="w-1/3 h-[130px] rounded-2xl object-cover"
+//               alt="Thumb 1"
+//             />
+//             <img
+//               src="https://media.istockphoto.com/id/1830126474/photo/portrait-of-a-business-man-sitting-in-an-office.jpg?s=2048x2048"
+//               className="w-1/3 h-[130px] rounded-2xl object-cover"
+//               alt="Thumb 2"
+//             />
+//             <img
+//               src="https://media.istockphoto.com/id/2171340716/photo/portrait-of-adult-happy-caucasian-man-stand-and-smile-at-home.jpg?s=2048x2048"
+//               className="w-1/3 h-[130px] rounded-2xl object-cover"
+//               alt="Thumb 3"
+//             />
+//           </div>
+//         </div>
+
+//         {/* Right Column */}
+//         <div className="flex flex-col flex-1 gap-6">
+//           {/* Two equal height cards */}
+//           <div className="flex flex-col bg-white rounded-2xl p-6 flex-1">
+//             <h1 className="font-bold text-lg">Design Team</h1>
+//             <p className="text-gray-500 mb-4">7 members</p>
+//             <div className="flex flex-col gap-3">
+//               <button className="bg-gray-100 px-4 py-2 rounded-2xl text-sm">Bug Report</button>
+//               <button className="bg-gray-100 px-4 py-2 rounded-2xl text-sm">Features Request</button>
+//               <button className="bg-gray-100 px-4 py-2 rounded-2xl text-sm">API Integration</button>
+//             </div>
+//           </div>
+
+//           <div className="flex flex-col bg-white rounded-2xl p-6 flex-1">
+//             <h1 className="font-bold text-lg">Record & Summarise</h1>
+//             <p className="text-gray-500 mb-4">
+//               Get quick, clear summaries of your chats with our bot for easy review.
+//             </p>
+//             <div className="border border-gray-200 rounded-2xl p-4 text-sm text-gray-700">
+//               Provide a summary of the most frequently mentioned customer requests, 
+//               concerns, and suggestions for the product, including key insights, 
+//               trends, and actionable feedback.
+//             </div>
+//           </div>
+//         </div>
+
+//       </div>
+//     </div>
+//   );
+// }
+
+
+
+// import React from 'react'
+// import Box from './component/Box'
+
+// function App() {
+//   return (
+//     <div>
+//       <Box className='flex justify-center' heading='AI Chatbot Solutions For Websites & Apps TalkSmart AI' perah="      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia recusandae delectus deleniti placeat quisquam quasi sequi error, accusantium ex quibusdam!" img="https://cdn.pixabay.com/photo/2025/08/01/13/35/winter-9748652_1280.jpg"/>
+//       </div>
+//   )
+// }
+
+// export default App
+
+
+
+// Import React Icons
+// import React from "react";
+// import {
+//   Infinity as InfinityIcon,
+//   Zap,
+//   Clock,
+//   Globe,
+//   PiggyBank,
+//   Paintbrush,
+//   Lightbulb,
+//   User,
+//   BadgeDollarSign,
+// } from "lucide-react";
+
+// function App() {
+//   const features = [
+//     {
+//       id: 1,
+//       icon: <InfinityIcon size={40} />,
+//       title: "On-demand requests",
+//       description:
+//         "Put all your requests in the design queue in Trello, and we’ll knock them off 1 by 1.",
+//     },
+//     {
+//       id: 2,
+//       icon: <Zap size={40}  />,
+//       title: "Top-notch quality",
+//       description:
+//         "High-end work from a dedicated team of senior designers that’s always available when you need it.",
+//     },
+//     {
+//       id: 3,
+//       icon: <Globe size={40}  />,
+//       title: "Powered by Webflow",
+//       description:
+//         "We build entirely on Webflow, nd  making them dynamic, accessible, and easily scalable.",
+//     },
+//     {
+//       id: 4,
+//       icon: <Clock size={40} />,
+//       title: "Fast. Responsive. Reliable.",
+//       description:
+//         "Get frequent updates on your projects and expect to receive your designs within 2-3 days.",
+//     },
+//     {
+//       id: 5,
+//       icon: <User size={40} />,
+//       title: "No Lock-in contracts",
+//       description: "Pay month-to-month, no surprises. Cancel anytime.",
+//     },
+//     {
+//       id: 6,
+//       icon: <BadgeDollarSign size={40} />,
+//       title: "Great value for money",
+//       description:
+//         "Get the power of a dedicated design team at a fraction of the cost of full-time employees.",
+//     },
+//     {
+//       id: 7,
+//       icon: <Paintbrush size={40} />,
+//       title: "Customized for you",
+//       description:
+//         "We design and build custom for you. Not starting from templates unless you want that.",
+//     },
+//     {
+//       id: 8,
+//       icon: <Lightbulb size={40}  />,
+//       title: "Creative paying",
+//       description:
+//         "We’re here when you need us and not on payroll when you don’t.",
+//     },
+//     {
+//       id: 9,
+//       icon: <PiggyBank size={40} />,
+//       title: "Expert turnovers",
+//       description:
+//         "You’re getting 10+ years of design experience, with no hand-holding required.",
+//     },
+//   ];
+
+//   return (
+// <div className="flex flex-wrap justify-center items-center min-h-screen bg-black gap-10">
+//   {features.map((item) => (
+//     <div
+//       key={item.id}
+//       className="w-[430px] flex flex-col gap-3 justify-center text-start  rounded-lg shadow-md"
+//     >
+//       <span className="text-green-600">{item.icon}</span>
+//       <div className="flex items-center gap-2">
+//         <span className="font-bold text-2xl text-white">{item.id}.</span>
+//         <h1 className="text-2xl font-bold text-white">{item.title}</h1>
+//       </div>
+//       <p className="font-sans text-neutral-400 text-[18px]">{item.description}</p>
+//     </div>
+//   ))}
+// </div>
+
+//   );
+// }
+
+// export default App;
+
+
+// LatestWorks.jsx
+// import React from "react";
+
+// const works = [
+//   {
+//     title: "Harigurus",
+//     subtitle: "(Event Booking)",
+//     description:
+//       "One-stop-shop for Hindu religious, customs & traditional requirements. Built from scratch.",
+//     tags: ["react.js", "express.js", "node.js", "swiper.js", "mongoDB", "mongoose", "css", "javascript", "figma"],
+//     image: "/images/harigurus.png",
+//   },
+//   {
+//     title: "EazyGrad",
+//     subtitle: "(EdTech Startup)",
+//     description: "Revamped site to be responsive & interactive. Added features & worked in a team.",
+//     tags: ["node.js", "express.js", "mongoDB", "Atlas", "ejs", "swiper.js", "html", "css", "javascript", "lighthouse", "figma"],
+//     image: "/images/eazygrad.png",
+//   },
+//   {
+//     title: "Web Dev English",
+//     subtitle: "(Coaching & Consulting)",
+//     description: "Improved design and added new features for a US-based English Coach website.",
+//     tags: ["wordpress", "elementor", "html", "css", "javascript", "figma"],
+//     image: "/images/webdevenglish.png",
+//   },
+//   {
+//     title: "Money Arjan Solutions",
+//     subtitle: "(Coaching & Consulting)",
+//     description: "Improved design and added new features for a US-based English Coach website.",
+//     tags: ["node.js", "express.js", "mongoDB", "Atlas", "ejs", "swiper.js", "html", "css", "javascript", "lighthouse", "figma"],
+//     image: "/images/webdevenglish.png",
+//   },
+// ];
+
+// export default function LatestWorks() {
+//   return (
+//     <section className="relative px-6 py-10">
+//      <div className="flex justify-center  items-center ">
+//        <h2 className="text-3xl flex justify-center  items-center font-bold mb-16 border-8 h-[50px] w-[260px]">Latest Works</h2>
+
+//      </div>
+//       {/* Center vertical line */}
+//       <div className="absolute left-1/2 top-22 h-full w-1 bg-red-700 -translate-x-1/2 z-0" />
+
+//       <div className="flex flex-col gap-30 relative z-10">
+//         {works.map((work, idx) => {
+//           const isLeftImage = idx % 2 === 0; // Even index → image left
+//           const color = isLeftImage ? "blue" : "red";
+
+//           return (
+//             <div key={idx} className="flex items-center justify-between  gap-10 w-full relative">
+              
+//               {/* LEFT-IMAGE CASE */}
+//               {isLeftImage && (
+//                 <>
+//                   <div className="w-1/2 flex justify-around">
+//                     <div className="flex items-center relative left-0 w-fit">
+//                       <img
+//                         src={work.image}
+//                         alt={work.title}
+//                         className="rounded-lg shadow-md w-80"
+//                       />
+        
+//                       <div className=" absolute border-1 w-[260px]  border-none  h-[4px] bg-amber-300 left-[320px]"
+                     
+//                       />
+//                     </div>
+//                   </div>
+
+//                   {/* Timeline dot */}
+//                   <div
+//                     className={`absolute left-1/2 w-6 h-6 bg-red-600 border-4 border-${color}-500 rounded-full -translate-x-1/2 z-10`}
+//                   ></div>
+
+//                   {/* Card/Text */}
+//                   <div className="w-1/2">
+//                     <Card work={work} color={color} />
+//                   </div>
+//                 </>
+//               )}
+
+//               {/* RIGHT-IMAGE CASE */}
+//               {!isLeftImage && (
+//                 <>
+//                   {/* Card/Text */}
+//                   <div className="w-1/2 flex justify-end">
+//                     <Card work={work} color={color} />
+//                   </div>
+
+//                   {/* Timeline dot */}
+//                   <div
+//                     className={`absolute left-1/2 w-6 h-6 bg-amber-600 border-4 border-${color}-500 rounded-full -translate-x-1/2 z-10`}
+//                   ></div>
+
+//                   {/* Image */}
+//                   <div className="w-1/2 flex justify-around">
+//                     <div className="flex items-center relative w-fit">
+//                       {/* Horizontal line going from Image → Center */}
+//                       <div
+//                         className={`h-[2px] bg-${color}-500`}
+//                         style={{
+//                           width: "260px",
+//                           position: "absolute",
+//                           left: "-260px", // push line towards center
+//                           top: "50%",
+//                           transform: "translateY(-50%)",
+//                         }}
+//                       />
+//                       <img
+//                         src={work.image}
+//                         alt={work.title}
+//                         className="rounded-lg shadow-md w-80"
+//                       />
+//                     </div>
+//                   </div>
+//                 </>
+//               )}
+//             </div>
+//           );
+//         })}
+//       </div>
+//     </section>
+//   );
+// }
+
+// function Card({ work, color }) {
+//   return (
+//     <div className={`bg-white p-6 rounded-lg shadow-md border-l-4 border-${color}-500`}>
+//       <h3 className={`text-xl font-bold text-${color}-500`}>{work.title}</h3>
+//       {work.subtitle && <p className="text-sm text-gray-500 italic">{work.subtitle}</p>}
+//       {work.description && <p className="mt-2 text-sm">{work.description}</p>}
+//       {!!work.tags.length && (
+//         <div className="flex flex-wrap gap-2 mt-4">
+//           {work.tags.map((tag, i) => (
+//             <span key={i} className="px-3 py-1 bg-gray-200 rounded-full text-xs">
+//               #{tag}
+//             </span>
+//           ))}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+
+// import React from 'react'
+// import AllCards from './component/AllCards';
+
+// function App() {
+//   const users = [
+//     { id: 1, name: "Ali", age: 20, country: "Pakistan" },
+//     { id: 2, name: "Sara", age: 22, country: "Pakistan" },
+//     { id: 3, name: "John", age: 25, country: "USA" },
+//     { id: 4, name: "Emma", age: 19, country: "UK" },
+//     { id: 5, name: "Ahmed", age: 23, country: "Pakistan" },
+//     { id: 6, name: "Sophia", age: 28, country: "Canada" },
+//     { id: 7, name: "Omar", age: 30, country: "UAE" },
+//     { id: 8, name: "Ayesha", age: 21, country: "Pakistan" },
+//     { id: 9, name: "David", age: 27, country: "Australia" },
+//     { id: 10, name: "Noor", age: 24, country: "Pakistan" }
+//   ];
+
+//   return (
+//     <div className="space-y-16">
+
+//       {/* 1st section: id=1 & 2 wider, others normal */}
+//       <div className="flex justify-center items-center flex-wrap gap-10">
+//         {users.map((item) => (
+//           <AllCards
+//             key={item.id}
+//             name={item.name}
+//             age={item.age}
+//             country={item.country}
+//             width={item.id === 1 || item.id === 2 ? 'w-[800px]' : 'w-[300px]'}
+//           />
+//         ))}
+//       </div>
+
+//       {/* 2nd section: all equal size */}
+//       <div className="flex justify-center items-center flex-wrap gap-10">
+//         {users.map((item) => (
+//           <AllCards
+//             key={item.id}
+//             name={item.name}
+//             age={item.age}
+//             country={item.country}
+//             width='w-[700px]'
+//           />
+//         ))}
+//       </div>
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+// src/components/FeaturesSection.jsx
+// import React from "react";
+// import { FaMagic, FaCheckCircle, FaImage, FaVideo, FaBrain, FaFeatherAlt, FaShareAlt, FaFileAlt } from "react-icons/fa";
+// import Card from "./component/Cards";;
+// import StepsSection from "./Home";
+// import About from "./About";
+
+// const features = [
+//   {
+//     title: "AI Prompt Generator",
+//     description: "Transform your ideas into professional prompts",
+//     icon: <FaMagic className="text-3xl text-blue-500" />,
+//   },
+//   {
+//     title: "Prompt Checking",
+//     description: "Verify your prompt quality",
+//     icon: <FaCheckCircle className="text-3xl text-purple-500" />,
+//   },
+//   {
+//     title: "Image Prompts",
+//     description: "Create stunning AI images",
+//     icon: <FaImage className="text-3xl text-pink-500" />,
+//   },
+//   {
+//     title: "VEO3 Video Prompts",
+//     description: "Create stunning AI videos",
+//     icon: <FaVideo className="text-3xl text-red-500" />,
+//   },
+//   {
+//     title: "AI Text Detector",
+//     description: "Detect AI-generated text",
+//     icon: <FaBrain className="text-3xl text-blue-400" />,
+//   },
+//   {
+//     title: "AI Humanizer",
+//     description: "Humanize AI Text Easily with Our Free AI Humanizer Tool",
+//     icon: <FaFeatherAlt className="text-3xl text-green-400" />,
+//   },
+//   {
+//     title: "Image to Prompt",
+//     description: "Convert images to AI prompts",
+//     icon: <FaShareAlt className="text-3xl text-orange-400" />,
+//   },
+//   {
+//     title: "Image to Text",
+//     description: "Extract text from images",
+//     icon: <FaFileAlt className="text-3xl text-red-400" />,
+//   },
+// ];
+
+// const FeaturesSection = () => {
+//   return (
+// <div>
+//       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6 max-w-[1300px] mx-auto">
+//       {features.map((item, index) => (
+//         <Card
+//           key={index}
+//           icon={item.icon}
+//           title={item.title}
+//           description={item.description}
+//           className='flex flex-col items-center justify-center text-center'
+//         />
+//       ))}
+//     </div>
+//     <div>
+//      <StepsSection/>
+//      <About/>
+//     </div>
+// </div>
+
+
+//   );
+// };
+
+// export default FeaturesSection;
+
+
+import React, { useEffect, useState } from "react";
+
+const sheetId = "16sP3h_KEMQgSHdcI7ybhOS_cuxKEFFopDlteHstSEkQ";
+const whatsappNumber = "+923102543502";  // Pakistani format without 0, country code +92
+
+const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&gid=0`;
+
+function App() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.text())
+      .then((csvText) => {
+        const rows = csvText.trim().split("\n");
+        const headers = rows[0].split(",");
+        const data = rows.slice(1).map((row) => {
+          const values = row.split(",");
+          let obj = {};
+          headers.forEach((header, i) => {
+            obj[header.trim()] = values[i]?.trim();
+          });
+          return obj;
+        });
+        setProducts(data);
+      })
+      .catch((err) => console.error("Error fetching Google Sheet:", err));
+  }, []);
+
+  // Function to handle Add to Cart & open WhatsApp with message
+  const handleAddToCart = (product) => {
+    // Construct message
+    const message = `Hello! I want to purchase the following product:\n\n` +
+      `Product Name: ${product["Product Name"]}\n` +
+      `Price: ${product["Discounted Price"] || product["Original Price"]}\n` +
+      `Description: ${product["Description"] || "N/A"}\n\n` +
+      `Please contact me ASAP. Thanks!`;
+
+    // Encode message for URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // WhatsApp URL
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
-    <div style={{ padding: "1rem", border: "1px solid gray", maxWidth: "400px" }}>
-      <p><strong>ZOii Qureshi 🦋🧸</strong></p>
-      <p>11 F ma Pani Nahin a Raha</p>
-      <p style={{ fontSize: "12px", color: "gray" }}>6h ago</p>
-         {showReplies && (
-       array.map((item)=>{
-        return (
-             <div style={{ marginTop: "10px", marginLeft: "20px" }}>
-          <p>{item}</p>
-        </div>
-        )
-       })
-      )}
-      <button onClick={toggleReplies} style={{ color: "blue", cursor: "pointer", background: "none", border: "none", padding: 0 }}>
-        {showReplies ? 'Hide replies' : `view ${array.length} replies`}
-      </button>
+    <div style={{ maxWidth: 900, margin: "auto", padding: 20 }}>
+      <h1>Product List</h1>
+      {products.length === 0 && <p>Loading products...</p>}
+
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
+        {products.map((product, index) => (
+          <div
+            key={index}
+            style={{
+              border: "1px solid #ddd",
+              borderRadius: 8,
+              padding: 20,
+              width: 250,
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            }}
+          >
+            <h3>{product["Product Name"]}</h3>
+            <p><strong>Price:</strong> Rs {product["Discounted Price"] || product["Original Price"]}</p>
+            <p style={{ fontSize: 14, color: "#555" }}>
+              {product["Description"] || "No description available."}
+            </p>
+            <button
+              onClick={() => handleAddToCart(product)}
+              style={{
+                marginTop: 10,
+                backgroundColor: "#25D366",
+                color: "white",
+                border: "none",
+                padding: "10px 15px",
+                borderRadius: 5,
+                cursor: "pointer",
+                width: "100%",
+                fontWeight: "bold",
+              }}
+            >
+              Add to Cart & WhatsApp
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+
+export default App;
