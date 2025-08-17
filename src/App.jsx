@@ -4611,9 +4611,13 @@
 import React, { useEffect, useState } from "react";
 
 const sheetId = "16sP3h_KEMQgSHdcI7ybhOS_cuxKEFFopDlteHstSEkQ";
-const whatsappNumber = "+923102543502";  // Pakistani format without 0, country code +92
+const whatsappNumber = "+923102543502";  // Pakistani format
 
 const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&gid=0`;
+
+function cleanString(str) {
+  return str?.trim().replace(/^"|"$/g, "");
+}
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -4628,7 +4632,7 @@ function App() {
           const values = row.split(",");
           let obj = {};
           headers.forEach((header, i) => {
-            obj[header.trim()] = values[i]?.trim();
+            obj[cleanString(header)] = cleanString(values[i]);
           });
           return obj;
         });
@@ -4637,22 +4641,15 @@ function App() {
       .catch((err) => console.error("Error fetching Google Sheet:", err));
   }, []);
 
-  // Function to handle Add to Cart & open WhatsApp with message
   const handleAddToCart = (product) => {
-    // Construct message
     const message = `Hello! I want to purchase the following product:\n\n` +
       `Product Name: ${product["Product Name"]}\n` +
-      `Price: ${product["Discounted Price"] || product["Original Price"]}\n` +
+      `Price: Rs ${product["Discounted Price"] || product["Original Price"]}\n` +
       `Description: ${product["Description"] || "N/A"}\n\n` +
       `Please contact me ASAP. Thanks!`;
 
-    // Encode message for URL
     const encodedMessage = encodeURIComponent(message);
-
-    // WhatsApp URL
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-    // Open WhatsApp in new tab
     window.open(whatsappUrl, "_blank");
   };
 
